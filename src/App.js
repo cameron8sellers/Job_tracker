@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import LandingPage from "./components/landingPage/landPage";
 import resourcePage from "./components/resources/resources";
 import Network from "./components/network/network";
