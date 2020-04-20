@@ -3,7 +3,7 @@ import React from "react";
 const Network = () => {
   return (
     <div>
-      <h1>Network</h1>
+      <h1>No Access</h1>
     </div>
   );
 };
