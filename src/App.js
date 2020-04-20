@@ -14,7 +14,7 @@ function App() {
       <Route path="/resources" component={resourcePage} />
       <Route path="/network" component={Network} />
       <Route path="/materials" component={Materials} />
-      <Route path="/Companies" component={Companies_Applications} />
+      <Route path="/companies" component={Companies_Applications} />
     </div>
   );
 }
