@@ -4,7 +4,7 @@ import LandingPage from "./components/landingPage/landPage";
 import resourcePage from "./components/resources/resources";
 import Network from "./components/network/network";
 import Materials from "./components/materials/materials";
-import Companies_Applications from "./components/companieApplications/companies.js";
+import Companies_Applications from "./components/companieApplications/companies";
 import "./App.css";
 
 function App() {
