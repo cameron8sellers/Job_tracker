@@ -16,6 +16,12 @@ const resourcesPage = () => {
             return <ul>{brand.name}</ul>;
           })}
         </p>
+        <h1>Resume and Cover Letter</h1>
+        <p>
+          {item.resumeAndCoverLetter.map(item => {
+            return <ul>{item.name}</ul>;
+          })}
+        </p>
       </div>
     );
   });
