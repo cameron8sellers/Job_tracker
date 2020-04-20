@@ -29,8 +29,8 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
         <div className="header">
             <Navbar color="light" light expand="md">
                 <Link className="navbar-brand" to="/">Job Tracker</Link>
-                <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-                    <Collapse isOpen={!collapsed} navbar>
+                {/* <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+                    <Collapse isOpen={!collapsed} navbar> */}
                 <Nav className="mr-auto">
                     <Link className="nav-link" to="/companies">Target Companies Applications</Link>
                     <Link className="nav-link" to="/materials">Job Search Materials</Link>
@@ -38,7 +38,7 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
                     <Link className="nav-link" to="/resources">Resources</Link>
                 </Nav>
                 {loggedIn ? logOut : logIn}
-                </Collapse>
+                {/* </Collapse> */}
             </Navbar>
         </div>
     );
