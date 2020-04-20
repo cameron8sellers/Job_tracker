@@ -4,7 +4,8 @@ import LandingPage from "./components/landingPage/landPage";
 import resourcePage from "./components/resources/resources";
 import Network from "./components/network/network";
 import Materials from "./components/materials/materials";
-import Companies_Applications from "./components/companieApplications/companies";
+import Companies_Applications from "./components/CompanieApplications/companies";
+import TargetCompaniesHeader from "./components/TargetCompaniesHeader/TargetCompaniesHeader"
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/network" component={Network} />
       <Route path="/materials" component={Materials} />
       <Route path="/Companies" component={Companies_Applications} />
+      <Route path="/targetcompanies" component={TargetCompaniesHeader} />
     </div>
   );
 }
