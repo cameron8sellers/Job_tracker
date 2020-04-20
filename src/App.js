@@ -4,7 +4,7 @@ import LandingPage from "./components/landingPage/landPage";
 import resourcePage from "./components/resources/resources";
 import Network from "./components/network/network";
 import Materials from "./components/materials/materials";
-import Companies_Applications from "./components/companieApplications/companies";
+//import Companies_Applications from "./components/CompanieApplications/Companies";
 import "./App.css";
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
     <div className="App">
       <Route exact path="/" component={LandingPage} />
       <Route path="/resources" component={resourcePage} />
-      <Route path="/network" component={Network} />
+      <Route path="/network" component={Network} /> 
       <Route path="/materials" component={Materials} />
-      <Route path="/Companies" component={Companies_Applications} />
+      {/*<Route path="/Companies" component={Companies_Applications} /> */}
     </div>
   );
 }

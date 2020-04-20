@@ -1,9 +1,11 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+import MainForm from '../network/createNetworkForm/mainForm'
 
 const Network = () => {
   return (
     <div>
-      <h1>Network</h1>
+      <MainForm />
     </div>
   );
 };
