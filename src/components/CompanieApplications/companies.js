@@ -1,6 +1,6 @@
 import React from "react";
 
-const Companies_Applications = () => {
+const companies_Applications = () => {
   return (
     <div>
       <h1>Companies_Applications</h1>
@@ -8,4 +8,4 @@ const Companies_Applications = () => {
   );
 };
 
-export default Companies_Applications;
+export default companies_Applications;
