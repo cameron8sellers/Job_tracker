@@ -1,0 +1,26 @@
+.resources-main {
+  background-color: #e27d60;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 1em;
+}
+ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: auto;
+}
+.jobBoard-card,
+.personalBranding-card,
+.resume-card,
+.inerview-card,
+.salary-card,
+.tech-card {
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  justify-content: space-around;
+  flex-shrink: 3;
+}
