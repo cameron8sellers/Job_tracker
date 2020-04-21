@@ -15,7 +15,7 @@ ul {
 .jobBoard-card,
 .personalBranding-card,
 .resume-card,
-.inerview-card,
+.interview-card,
 .salary-card,
 .tech-card {
   padding: 1em;
@@ -23,4 +23,93 @@ ul {
   display: flex;
   justify-content: space-around;
   flex-shrink: 3;
+  width: 90%;
+}
+.job-head,
+.personal-head,
+.resume-head,
+.interview-head,
+.salary-head,
+.tech-head {
+  margin: 0.25em;
+  display: flex;
+  width: 90%;
+}
+
+@media (min-width: 750px) {
+  .resources-main {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 0.1fr 1fr;
+    grid-column-gap: 14px;
+    grid-row-gap: 13px;
+  }
+  .job-head {
+    grid-column: 0/1;
+    grid-row: 1/2;
+  }
+  .jobBoard-card {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .personal-head {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .personalBranding-card {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .resume-head {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  .resume-card {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .interview-head {
+    grid-column: 4/5;
+    grid-row: 1/2;
+  }
+  .interview-card {
+    grid-column: 4/5;
+    grid-row: 2/3;
+  }
+  .salary-head {
+    grid-column: 5/6;
+    grid-row: 1/2;
+  }
+  .salary-card {
+    grid-column: 5/6;
+    grid-row: 2/3;
+  }
+  .tech-head {
+    grid-column: 6/7;
+    grid-row: 1/2;
+  }
+  .tech-card {
+    grid-column: 6/7;
+    grid-row: 2/3;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .job-head,
+  .personal-head,
+  .resume-head,
+  .interview-head,
+  .salary-head,
+  .tech-head {
+    height: 45%;
+    justify-content: center;
+  }
+  .jobBoard-card,
+  .personalBranding-card,
+  .resume-card,
+  .interview-card,
+  .salary-card,
+  .tech-card {
+    justify-content: start;
+  }
 }

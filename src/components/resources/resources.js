@@ -2,12 +2,15 @@ import React from "react";
 import resourceSeed from "../SeedData/resourceSeed";
 import { Card } from "reactstrap";
 import "./resources.css";
+
 const resourcesPage = () => {
   let list = resourceSeed.map(item => {
     return (
       <div className="resources-main">
-        <Card className="jobBoard-card">
+        <Card className="job-head">
           <h1>Job Boards</h1>
+        </Card>
+        <Card className="jobBoard-card">
           <p>
             {item.jobBoards.map(board => {
               return (
@@ -20,8 +23,10 @@ const resourcesPage = () => {
             })}
           </p>
         </Card>
-        <Card className="personalBranding-card">
+        <Card className="personal-head">
           <h1>Personal Branding</h1>
+        </Card>
+        <Card className="personalBranding-card">
           <p>
             {item.personalBranding.map(brand => {
               return (
@@ -34,8 +39,10 @@ const resourcesPage = () => {
             })}
           </p>
         </Card>
-        <Card className="resume-card">
+        <Card className="resume-head">
           <h1>Resume and Cover Letter </h1>
+        </Card>
+        <Card className="resume-card">
           <p>
             {item.resumeAndCoverLetter.map(item => {
               return (
@@ -48,8 +55,10 @@ const resourcesPage = () => {
             })}
           </p>
         </Card>
-        <Card className="interview-card">
+        <Card className="interview-head">
           <h1>Interviewing</h1>
+        </Card>
+        <Card className="interview-card">
           <p>
             {item.interviewing.map(item => {
               return (
@@ -62,8 +71,10 @@ const resourcesPage = () => {
             })}
           </p>
         </Card>
-        <Card className="salary-card">
+        <Card className="salary-head">
           <h1>Salary Negotiation</h1>
+        </Card>
+        <Card className="salary-card">
           <p>
             {item.salaryNegotiation.map(item => {
               return (
@@ -76,8 +87,10 @@ const resourcesPage = () => {
             })}
           </p>
         </Card>
-        <Card className="tech-card">
+        <Card className="tech-head">
           <h1>Technical</h1>
+        </Card>
+        <Card className="tech-card">
           <p>
             {item.technical.map(item => {
               return (
