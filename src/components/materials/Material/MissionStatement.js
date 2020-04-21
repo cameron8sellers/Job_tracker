@@ -5,7 +5,7 @@ import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const MissionStatement = ({handleURLChange, newURL}) => {
+const MissionStatement = ({handleURLChange, handleCopy, newURL}) => {
     const sharedStates = useContext(TrackerContext);
 
     const handleResumeSubmit = e => {
@@ -22,17 +22,23 @@ const MissionStatement = ({handleURLChange, newURL}) => {
     };
 
     return (
-        <Form onSubmit={handleResumeSubmit}>
-            <FormGroup className="jsmContainer-inputContainer">
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Resume</InputGroupText>
-                </InputGroupAddon>
-                <Input type="url"
-                       value={sharedStates.userProfile.jobSearchMaterials.brandStatement}
-                       onChange={handleURLChange}/>
-                <button className="jsmContainer-button">copy</button>
-            </FormGroup>
-        </Form>
+        <div className="jsmContainer-row">
+            <Form onSubmit={handleResumeSubmit}>
+                <FormGroup className="jsmContainer-inputContainer">
+                    <InputGroupAddon addonType="prepend">
+                        <InputGroupText>Resume</InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="url"
+                           id="brandStatementInput"
+                           value={sharedStates.userProfile.jobSearchMaterials.brandStatement}
+                           onChange={handleURLChange}/>
+                </FormGroup>
+            </Form>
+            <button
+                id="brandStatement"
+                onClick={handleCopy}
+                className="jsmContainer-button">copy</button>
+        </div>
     );
 };
 

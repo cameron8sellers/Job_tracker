@@ -5,7 +5,7 @@ import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const LinkedIn = ({handleURLChange, newURL}) => {
+const LinkedIn = ({handleURLChange, handleCopy, newURL}) => {
     const sharedStates = useContext(TrackerContext);
 
     const handleResumeSubmit = e => {
@@ -21,18 +21,25 @@ const LinkedIn = ({handleURLChange, newURL}) => {
         })
     };
 
+
     return (
-        <Form onSubmit={handleResumeSubmit}>
-            <FormGroup className="jsmContainer-inputContainer">
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>LinkedIn URL</InputGroupText>
-                </InputGroupAddon>
-                <Input type="url"
-                       value={sharedStates.userProfile.jobSearchMaterials.linkedIn}
-                       onChange={handleURLChange}/>
-                <button className="jsmContainer-button">copy</button>
-            </FormGroup>
-        </Form>
+        <div className="jsmContainer-row">
+            <Form onSubmit={handleResumeSubmit}>
+                <FormGroup className="jsmContainer-inputContainer">
+                    <InputGroupAddon addonType="prepend">
+                        <InputGroupText>LinkedIn</InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="url"
+                           id="linkedInInput"
+                           value={sharedStates.userProfile.jobSearchMaterials.linkedIn}
+                           onChange={handleURLChange}/>
+                </FormGroup>
+            </Form>
+            <button
+                id="linkedIn"
+                onClick={handleCopy}
+                className="jsmContainer-button">copy</button>
+        </div>
     );
 };
 

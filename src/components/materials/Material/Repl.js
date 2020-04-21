@@ -5,7 +5,7 @@ import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const Repl = ({handleURLChange, newURL}) => {
+const Repl = ({handleURLChange, handleCopy, newURL}) => {
     const sharedStates = useContext(TrackerContext);
 
 
@@ -23,17 +23,23 @@ const Repl = ({handleURLChange, newURL}) => {
     };
 
     return (
-        <Form onSubmit={handleResumeSubmit}>
-            <FormGroup className="jsmContainer-inputContainer">
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Repl.it URL</InputGroupText>
-                </InputGroupAddon>
-                <Input type="url"
-                       value={sharedStates.userProfile.jobSearchMaterials.repl}
-                       onChange={handleURLChange}/>
-                <button className="jsmContainer-button">copy</button>
-            </FormGroup>
-        </Form>
+        <div className="jsmContainer-row">
+            <Form onSubmit={handleResumeSubmit}>
+                <FormGroup className="jsmContainer-inputContainer">
+                    <InputGroupAddon addonType="prepend">
+                        <InputGroupText>Repl.it</InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="url"
+                           id="replInput"
+                           value={sharedStates.userProfile.jobSearchMaterials.repl}
+                           onChange={handleURLChange}/>
+                </FormGroup>
+            </Form>
+            <button
+                id="repl"
+                onClick={handleCopy}
+                className="jsmContainer-button">copy</button>
+        </div>
     );
 };
 
