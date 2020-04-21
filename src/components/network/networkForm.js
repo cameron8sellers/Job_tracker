@@ -2,7 +2,21 @@ import React, { useState } from "react"
 import { Form, Col, Button, Card } from "react-bootstrap"
 
 export default function NetworkForm(){
-  const [networks, setNetwork] = useState([])
+  const [networks, setNetwork] = useState({
+    name: ""
+  })
+  const [emails, setEmail] = useState({
+    email: ""
+  })
+  const [phones, setPhone] = useState({
+    phone: ""
+  })
+  const [companies, setCompany] = useState({
+    company: ""
+  })
+  const [notes, setNote] = useState({
+    notes: ""
+  })
   const [value, setValue] = useState("")
 
   const handleSubmit = (e) => {
@@ -20,6 +34,12 @@ export default function NetworkForm(){
       setValue(e.target.value)
   }
 
+  const handleNetwork = (e) => {
+    let newNetwork ={...networks}
+    newNetwork.name =e.target.value
+    setNetwork(newNetwork)
+    e.target.values = ""
+  }
 
   return (
       <>
@@ -29,7 +49,7 @@ export default function NetworkForm(){
                       <Form.Control
                           type="text"
                           addNetwork={addNetwork}
-                          onChange={handleChange}
+                          onChange={handleNetwork}
                           placeholder="Name" 
                       />
                   </Col>
@@ -38,7 +58,7 @@ export default function NetworkForm(){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addNetwork}
+                          addNetwork={addEmail}
                           onChange={handleChange}
                           placeholder="Email" 
                       />
@@ -46,7 +66,7 @@ export default function NetworkForm(){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addNetwork}
+                          addNetwork={addPhone}
                           onChange={handleChange}
                           placeholder="Phone" 
                       />
@@ -56,7 +76,7 @@ export default function NetworkForm(){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addNetwork}
+                          addNetwork={addCompany}
                           onChange={handleChange}
                           placeholder="Company" 
                       />
@@ -66,7 +86,7 @@ export default function NetworkForm(){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addNetwork}
+                          addNetwork={addNote}
                           onChange={handleChange}
                           placeholder="Notes" 
                       />
@@ -74,30 +94,32 @@ export default function NetworkForm(){
                   </Form.Row>
                   <Form.Row>
                   <Col>
-                      <Form.Control type="Submit" value="Submit" style={{ backgroundColor: '#c38d9e', width: "10%"}} />
+                      <Form.Control type="Submit" value="Add Contact" style={{ backgroundColor: '#c38d9e', width: "10%"}} />
                   </Col>
               </Form.Row>
           </Form>
-          {networks.map((network, index) => {
-              return (
-                <Card  style={{ width: '18rem', borderColor: '#41B3a3' }}>
-                <Card.Header>name</Card.Header>
-                <Card.Body>
-                <Card.Title>company</Card.Title>
-                <Card.Text>
-                 email and phone go here
-                </Card.Text>
-                 <Card.Text>
-                 Notes:
-                
-                </Card.Text>
-              </Card.Body>
-             </Card>
-              )
-          })}
-      </>
-  )
+          </>
+  )   
 }
     
     
       
+  {/*Network.map(network, index) => {
+    return (
+      <Card  style={{ width: '18rem', borderColor: '#41B3a3' }}>
+      <Card.Header>name</Card.Header>
+      <Card.Body>
+      <Card.Title>company</Card.Title>
+      <Card.Text>
+       email and phone go here
+      </Card.Text>
+       <Card.Text>
+       Notes:
+      
+      </Card.Text>
+    </Card.Body>
+   </Card>
+    )
+)}
+</>
+    ) */}
