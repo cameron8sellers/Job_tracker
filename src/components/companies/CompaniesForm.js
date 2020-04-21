@@ -11,19 +11,22 @@ export default function CompaniesForm(props){
             jobPosition: "",
             jobURL: "",
             date: "",
-            // pointOfContact: "",
+            pointOfContact: "",
         }
     ])
-    const [value, setValue] = useState("")
-    console.log(companies)
     
     const handleSubmit = (e) => {
-        // console.log("Submit")
-        // console.log("new company:", companies)
         e.preventDefault()
-        addCompany(value)
-        setValue("")
-        console.log(companies)
+        setCompanies(
+            {
+                companyName: "",
+                jobPosition: "",
+                jobURL: "",
+                date: "",
+                pointOfContact: "",
+            }
+        )
+        sharedStates.userProfile.targetCompanies.push(companies)
     }
 
     const handleCompanyName = (e) => {
@@ -46,78 +49,88 @@ export default function CompaniesForm(props){
 
     const handleDate = (e) => {
         let newCompanies = { ...companies }
-        newCompanies.Date = e.target.value
+        newCompanies.date = e.target.value
         setCompanies(newCompanies)
     }
 
-    const addCompany = company => {
-        const newCompany = [ company ]
-        // console.log(newCompany)
-        setCompanies(newCompany)
-        console.log(newCompany)
+    const handlePointOfContact = (e) => {
+        let newCompanies = { ...companies }
+        newCompanies.pointOfContact = e.target.value
+        setCompanies(newCompanies)
     }
 
-            // {companies.map((company, index) => { 
-            //     return ( 
-            //             <Card style={{ width: '18rem' }}>
-            //                 <Card.Body>
-            //                     <Card.Title>Card Title</Card.Title>
-            //                     <Card.Text>
-            //                         {company.companyName}
-            //                     </Card.Text>
-            //                     <Card.Text>
-            //                         {company.jobPosition}
-            //                     </Card.Text>
-            //                     <Card.Text>
-            //                         {company.jobURL}
-            //                     </Card.Text>
-            //                     <i className="fas fa-plus"></i>
-            //                 </Card.Body>
-            //             </Card>
-            //         )
-            //     })}
+    // const newCompanies = companies.map((company, index) => { 
+    //     return ( 
+    //             <Card style={{ width: '18rem' }}>
+    //                 <Card.Body>
+    //                     <Card.Title>Card Title</Card.Title>
+    //                     <Card.Text>
+    //                         {company.companyName}
+    //                     </Card.Text>
+    //                     <Card.Text>
+    //                         {company.jobPosition}
+    //                     </Card.Text>
+    //                     <Card.Text>
+    //                         {company.jobURL}
+    //                     </Card.Text>
+    //                     <i className="fas fa-plus"></i>
+    //                 </Card.Body>
+    //             </Card>
+    //         )
+    //     })
 
     return (
         <>
             <Form onSubmit={handleSubmit}>
-                <Form.Row>
-                    <Col>
+                {/* <Form.Row> */}
+                    {/* <Col> */}
                         <Form.Control
                             type="text"
                             value={companies.companyName}
                             onChange={handleCompanyName}
                             placeholder="Company Name" 
                         />
-                    </Col>
-                    <Col>
+                    {/* </Col>
+                    <Col> */}
                         <Form.Control
                             type="text"
                             value={companies.jobPosition}
                             onChange={handleJobPosition}
                             placeholder="Job Position" 
                         />
-                    </Col>
-                    <Col>
+                    {/* </Col>
+                    <Col> */}
                         <Form.Control
                             type="text"
                             value={companies.jobURL}
                             onChange={handleJobURL}
                             placeholder="Job URL" 
                         />
-                    </Col>
-                    <Col>
+                    {/* </Col>
+                    <Col> */}
                         <Form.Control
                             type="text"
                             value={companies.date}
                             onChange={handleDate}
                             placeholder="Date Submitted" 
                         />
-                    </Col>
-                    <Col>
+                    {/* </Col>
+                    <Col> */}
+                        <Form.Control
+                            type="text"
+                            value={companies.date}
+                            onChange={handleDate}
+                            placeholder="Date Submitted" 
+                        />
+                    {/* </Col>
+                    <Col> */}
                         <Form.Control type="Submit" value="Submit" />
-                    </Col>
-                </Form.Row>
+                    {/* </Col>
+                </Form.Row> */}
             </Form>
+
+
+            {companies.companyName}
 
         </>
     )
