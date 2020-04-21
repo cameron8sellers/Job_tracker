@@ -5,7 +5,7 @@ import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const CoverLetter = ({handleURLChange, newURL}) => {
+const CoverLetter = ({handleURLChange, handleCopy, newURL}) => {
     const sharedStates = useContext(TrackerContext);
 
     const handleResumeSubmit = e => {
@@ -22,17 +22,23 @@ const CoverLetter = ({handleURLChange, newURL}) => {
     };
 
     return (
-        <Form onSubmit={handleResumeSubmit}>
-            <FormGroup className="jsmContainer-inputContainer">
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Cover Letter</InputGroupText>
-                </InputGroupAddon>
-                <Input type="url"
-                       value={sharedStates.userProfile.jobSearchMaterials.coverLetter}
-                       onChange={handleURLChange}/>
-                <button className="jsmContainer-button">copy</button>
-            </FormGroup>
-        </Form>
+        <div className="jsmContainer-row">
+            <Form onSubmit={handleResumeSubmit}>
+                <FormGroup className="jsmContainer-inputContainer">
+                    <InputGroupAddon addonType="prepend">
+                        <InputGroupText>Cover Letter</InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="url"
+                           id="coverLetterInput"
+                           value={sharedStates.userProfile.jobSearchMaterials.coverLetter}
+                           onChange={handleURLChange}/>
+                </FormGroup>
+            </Form>
+            <button
+                id="coverLetter"
+                onClick={handleCopy}
+                className="jsmContainer-button">copy</button>
+        </div>
     );
 };
 

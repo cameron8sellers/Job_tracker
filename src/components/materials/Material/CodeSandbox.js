@@ -5,7 +5,7 @@ import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const CodeSandbox = ({handleURLChange, newURL}) => {
+const CodeSandbox = ({handleURLChange, handleCopy, newURL}) => {
     const sharedStates = useContext(TrackerContext);
 
     const handleResumeSubmit = e => {
@@ -22,17 +22,24 @@ const CodeSandbox = ({handleURLChange, newURL}) => {
     };
 
     return (
-        <Form onSubmit={handleResumeSubmit}>
-            <FormGroup className="jsmContainer-inputContainer">
-                <InputGroupAddon addonType="prepend">
-                    <InputGroupText>CodeSandbox URL</InputGroupText>
-                </InputGroupAddon>
-                <Input type="url"
-                       value={sharedStates.userProfile.jobSearchMaterials.codeSandBox}
-                       onChange={handleURLChange}/>
-                <button className="jsmContainer-button">copy</button>
-            </FormGroup>
-        </Form>
+        <div className="jsmContainer-row">
+            <Form onSubmit={handleResumeSubmit}>
+                <FormGroup className="jsmContainer-inputContainer">
+                    <InputGroupAddon addonType="prepend">
+                        <InputGroupText>CodeSandbox</InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="url"
+                           id="codeSandBoxInput"
+                           value={sharedStates.userProfile.jobSearchMaterials.codeSandBox}
+                           onChange={handleURLChange}/>
+
+                </FormGroup>
+            </Form>
+            <button
+                id="codeSandBox"
+                onClick={handleCopy}
+                className="jsmContainer-button">copy</button>
+        </div>
     );
 };
 
