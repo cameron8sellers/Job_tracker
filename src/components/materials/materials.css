@@ -1,0 +1,13 @@
+.jsmContainer{
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.jsmContainer-inputContainer{
+    display: flex;
+}
+
+.jsmContainer-button{
+    margin-left: 10px;
+}

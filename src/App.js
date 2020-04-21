@@ -8,29 +8,42 @@ import companies_Applications from "./components/companies/companies";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { validToken } from './services/api-helper-userAuth'
+import { getResources } from './services/api-helper-Resources'
 import NoAccess from "./components/Auth/NoAccess"
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(true);
     const [createModal, setCreateModal] = useState(true);
-    const [token, setToken] =  useState("");
+    const [token, setToken] =  useState(localStorage.getItem("token"));
     const [resources, setResources] = useState({});
     const [userProfile, setUserProfile] = useState({});
 
 
+    /*
+        Validate, Fetch, and save user profile
+        Fetch and save resources
+     */
     useEffect(() => {
-        const localToken = localStorage.getItem("token");
-        if(localToken){
-            validToken(localToken).then(resp => {
-                    if(resp === 200){
-                        setLoggedIn(true)
+        if(token){
+            validToken(token).then(resp => {
+                    if(resp.status === 200){
+                        localStorage.setItem("token", resp.token);
+                        // setToken(resp.token); // May need to uncomment if token expires?
+                        setLoggedIn(true);
+                        setUserProfile(resp.userProfile)
                     }else{
                         setLoggedIn(false)
                     }
                 }
             )
         }
+
+        getResources().then(resp => {
+            setResources(resp)
+        })
+
     }, [token]);
+
 
   return (
     <>
