@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { registerNewUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
@@ -13,17 +12,16 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
         e.preventDefault();
         console.log("Creating Account: ", userCreds);
         if(userCreds.email.length > 3){
-            // const json = await registerNewUser(userCreds);
-            // if(json.status === 200){
-            //     localStorage.setItem("token", json.token);
-            //     sharedStates.setToken(json.token);
-            //     sharedStates.setUserProfile(json.userProfile);
-            //     console.log("User successfully created");
-            // } else{
-            //     sharedStates.setLoggedIn(false);
-            //     console.log("Error creating account: ", json.error)
-            // }
-            sharedStates.setLoggedIn(true);
+            const json = await registerNewUser(userCreds);
+            if(json.status === 200){
+                localStorage.setItem("token", json.token);
+                sharedStates.setToken(json.token);
+                sharedStates.setUserProfile(json.userProfile);
+                console.log("User successfully created");
+            } else{
+                sharedStates.setLoggedIn(false);
+                console.log("Error creating account: ", json.error)
+            }
         }
     };
 
@@ -42,7 +40,6 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
                     <Input
                         type="password"
                         name="password"
-                        // id="examplePassword"
                         placeholder="Password (case sensitive)"
                         onChange={handlePasswordChange}
                         className="loginContainer-input"/>

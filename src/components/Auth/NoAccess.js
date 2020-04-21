@@ -1,30 +1,11 @@
-import React, {useContext, useState} from 'react';
-import { TrackerContext } from '../../App'
-import CreateAccount from "./CreateAccount"
-import LogIn from "./LogIn"
+import React from 'react';
 
 function NoAccess() {
-    const sharedStates = useContext(TrackerContext);
-    const [userCreds, setUserCreds] = useState({
-        email: "",
-        password: ""
-    });
-
-    const handleUserNameChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.email = e.target.value;
-        setUserCreds(newCreds);
-    };
-
-    const handlePasswordChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.password = e.target.value;
-        setUserCreds(newCreds);
-    };
 
     return (
         <div>
-            <h1>No</h1>
+            <h1>Access Denied.</h1>
+            <h1>Please login or create an account</h1>
         </div>
     );
 }
