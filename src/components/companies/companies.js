@@ -1,11 +1,12 @@
 import React from "react";
+import CompaniesForm from "./CompaniesForm"
 
-const companies_Applications = () => {
+const CompaniesApplications = () => {
   return (
     <div>
-      <h1>Companies_Applications</h1>
+        <CompaniesForm />
     </div>
   );
 };
 
-export default companies_Applications;
+export default CompaniesApplications;

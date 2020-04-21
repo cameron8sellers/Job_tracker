@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Navbar,
     Nav,
-    NavbarText
+    NavbarText,
+    Collapse,
+    NavbarToggler
 } from 'reactstrap';
 
 
-
 function Header({loggedIn, setLoggedIn, setCreateModal}) {
+    const [collapsed, setCollapsed] = useState(true)
+    const toggleNavbar = () => setCollapsed(!collapsed)
 
     function logUserOut() {
         localStorage.removeItem("token")
@@ -26,6 +29,8 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
         <div className="header">
             <Navbar color="light" light expand="md">
                 <Link className="navbar-brand" to="/">Job Tracker</Link>
+                <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+                    <Collapse isOpen={!collapsed} navbar>
                 <Nav className="mr-auto">
                     <Link className="nav-link" to="/companies">Target Companies Applications</Link>
                     <Link className="nav-link" to="/materials">Job Search Materials</Link>
@@ -33,6 +38,7 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
                     <Link className="nav-link" to="/resources">Resources</Link>
                 </Nav>
                 {loggedIn ? logOut : logIn}
+                </Collapse>
             </Navbar>
         </div>
     );
