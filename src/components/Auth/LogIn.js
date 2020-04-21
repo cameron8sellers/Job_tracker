@@ -11,17 +11,16 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
     const handleLogin = async (e) => {
         e.preventDefault();
         if (userCreds.email.length > 3) {
-            // const json = await authenticateUser(userCreds);
-            // if (json.status === 200) {
-            //     localStorage.setItem("token", json.token);
-            //     sharedStates.setToken(json.token);
-            //     sharedStates.setUserProfile(json.userProfile);
-            //     console.log("User Authenticated");
-            // } else {
-            //     sharedStates.setLoggedIn(false);
-            //     console.log("Error Authenticating User: ", json.error);
-            // }
-            sharedStates.setLoggedIn(true);
+            const json = await authenticateUser(userCreds);
+            if (json.status === 200) {
+                localStorage.setItem("token", json.token);
+                sharedStates.setToken(json.token);
+                sharedStates.setUserProfile(json.userProfile);
+                console.log("User Authenticated");
+            } else {
+                sharedStates.setLoggedIn(false);
+                console.log("Error Authenticating User: ", json.error);
+            }
         }
     };
 
