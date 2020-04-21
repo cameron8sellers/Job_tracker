@@ -1,7 +1,11 @@
 import React from "react";
 import resourceSeed from "../SeedData/resourceSeed";
 import { Card } from "reactstrap";
-import { getResources, updateResource, deleteResource } from "../";
+import {
+  getResources,
+  updateResource,
+  deleteResource
+} from "../../services/api-helper-Resources";
 import "./resources.css";
 
 const resourcesPage = () => {
