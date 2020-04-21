@@ -1,7 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Form, Col, Button, Card } from "react-bootstrap"
+import { TrackerContext } from "../../App"
 
 export default function NetworkForm(props){
+  const sharedStates = useContext(TrackerContext);
+  console.log(sharedStates)
   const [networks, setNetwork] = useState({
     name: "",
     email: "",
@@ -12,7 +15,6 @@ export default function NetworkForm(props){
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      addNetwork(value)
       setNetwork({
         name: "",
         email: "",
@@ -20,7 +22,7 @@ export default function NetworkForm(props){
         comapny: "",
         notes: ""
       })
-      sharedStates.userProfile.targetCompanies.push(companies)
+      sharedStates.userProfile.networkingContacts.push(networks)
   }
 
 
@@ -36,27 +38,27 @@ export default function NetworkForm(props){
   }
 
   const handleEmail = (e) => {
-    let newEmail ={...emails}
+    let newEmail ={...networks}
     newEmail.email =e.target.value
-    setEmail(newEmail)
+    setNetwork(newEmail)
   }
 
   const handlePhone = (e) => {
-    let newPhone ={...phones}
+    let newPhone ={...networks}
     newPhone.phone =e.target.value
-    setPhone(newPhone)
+    setNetwork(newPhone)
   }
 
   const handleCompany = (e) => {
-    let newCompany ={...companies}
+    let newCompany ={...networks}
     newCompany.company =e.target.value
-    setCompany(newCompany)
+    setNetwork(newCompany)
   }
 
   const handleNote = (e) => {
-    let newNote ={...notes}
+    let newNote ={...networks}
     newNote.note =e.target.value
-    setNote(newNote)
+    setNetwork(newNote)
   }
 
    {/*{Network.map((network, index) => {
@@ -84,7 +86,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addNetwork}
+                          value={networks.name}
                           onChange={handleNetwork}
                           placeholder="Name" 
                       />
@@ -94,7 +96,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addEmail}
+                          value={networks.email}
                           onChange={handleEmail}
                           placeholder="Email" 
                       />
@@ -102,7 +104,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addPhone}
+                          value={networks.phone}
                           onChange={handlePhone}
                           placeholder="Phone" 
                       />
@@ -112,7 +114,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addCompany}
+                          value={networks.company}
                           onChange={handleCompany}
                           placeholder="Company" 
                       />
@@ -122,7 +124,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          addNetwork={addNote}
+                          value={networks.note}
                           onChange={handleNote}
                           placeholder="Notes" 
                       />
