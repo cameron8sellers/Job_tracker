@@ -66,9 +66,8 @@ function App() {
                     <Route path="/resources" component={resourcePage} />
                     <Route path="/network" component={loggedIn ? Network : NoAccess} />
                     <Route path="/materials" component={loggedIn ? Materials : NoAccess} />
-
-                    <Route path="/companies" component={loggedIn ? companies_Applications : NoAccess} />
-
+                    <Route path="/companies" component={loggedIn ? CompaniesApplications : NoAccess} />
+                    
                 </div>
             </TrackerContext.Provider>
         </div>
