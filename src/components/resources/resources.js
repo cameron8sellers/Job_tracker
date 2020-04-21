@@ -1,6 +1,7 @@
 import React from "react";
 import resourceSeed from "../SeedData/resourceSeed";
 import { Card } from "reactstrap";
+import { getResources, updateResource, deleteResource } from "../";
 import "./resources.css";
 
 const resourcesPage = () => {
