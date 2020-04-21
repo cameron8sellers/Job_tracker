@@ -10,15 +10,26 @@ export const validToken = async (token) => {
         params: {
             token: token
         }});
-    return resp.status
+    return resp.data
 };
 
-
+/*======== Format of user ========================
+    {
+      "email": "{{userName}}",
+      "password": "{{password}}"
+    }
+ */
 export const registerNewUser = async (user) => {
     const resp  = await api.post(`/register`, user);
     return resp.data
 };
 
+/*======== Format of user ========================
+    {
+      "email": "{{userName}}",
+      "password": "{{password}}"
+    }
+ */
 export const authenticateUser = async (user) => {
     const resp = await api.post('/authenticate', user, {
         withCredentials: true,
@@ -29,9 +40,5 @@ export const authenticateUser = async (user) => {
     });
     console.log("authenticate user response: ", resp)
     return resp.data
-};
-
-export const logUserOut = async (user) => {
-    return "Loging user out ..."
 };
 
