@@ -31,14 +31,8 @@ export const registerNewUser = async (user) => {
     }
  */
 export const authenticateUser = async (user) => {
-    const resp = await api.post('/authenticate', user, {
-        withCredentials: true,
-        maxRedirects: 0,
-        validateStatus: function (status) {
-            return status <= 302;
-        }
-    });
-    console.log("authenticate user response: ", resp)
+    const resp = await api.post('/authenticate', user);
+    console.log("authenticate user response: ", resp);
     return resp.data
 };
 

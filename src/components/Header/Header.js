@@ -19,8 +19,8 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
         setCreateModal(false)
     }
 
-    const logIn = <NavbarText onClick={loadSignIn}>Log In</NavbarText>;
-    const logOut = <NavbarText onClick={logUserOut} >Log Out</NavbarText>;
+    const logIn = <NavbarText><Link to="/"  onClick={loadSignIn}>Log In</Link></NavbarText>;
+    const logOut = <NavbarText><Link to="/" onClick={logUserOut}>Log Out</Link></NavbarText>;
 
     return (
         <div className="header">
