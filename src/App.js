@@ -5,6 +5,7 @@ import resourcePage from "./components/resources/resources";
 import Network from "./components/network/network";
 import Materials from "./components/materials/materials";
 import CompaniesApplications from "./components/companies/companies";
+import Footer from './components/Footer/Footer'
 import "./App.css";
 import Header from "./components/Header/Header";
 import { validToken } from './services/api-helper-userAuth'
@@ -70,6 +71,7 @@ function App() {
                     
                 </div>
             </TrackerContext.Provider>
+            <Footer />
         </div>
 
 

@@ -1,15 +1,17 @@
 import React, { useState, useContext } from "react"
 import { Form, Col, Button, Card } from "react-bootstrap"
 import { TrackerContext } from "../../App"
+import { updateUserProfile } from "../../services/api-helper-userProfile";
+
 
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
   console.log(sharedStates)
   const [networks, setNetwork] = useState([{
     name: "",
-    email: "",
+    networkEmail: "",
     phone: "",
-    comapny: "",
+    employer: "",
     notes: ""
   }])
 
@@ -17,9 +19,9 @@ export default function NetworkForm(props){
       e.preventDefault()
       setNetwork({
         name: "",
-        email: "",
+        networkEmail: "",
         phone: "",
-        comapny: "",
+        employer: "",
         notes: ""
       })
       sharedStates.userProfile.networkingContacts.push(networks)
@@ -39,7 +41,7 @@ export default function NetworkForm(props){
 
   const handleEmail = (e) => {
     let newEmail ={...networks}
-    newEmail.email =e.target.value
+    newEmail.networkEmail =e.target.value
     setNetwork(newEmail)
   }
 
@@ -51,7 +53,7 @@ export default function NetworkForm(props){
 
   const handleCompany = (e) => {
     let newCompany ={...networks}
-    newCompany.company =e.target.value
+    newCompany.employer =e.target.value
     setNetwork(newCompany)
   }
 
@@ -61,10 +63,16 @@ export default function NetworkForm(props){
     setNetwork(newNote)
   }
 
+  const handleDelete = (index) => {
+    sharedStates.userProfile.networkingContacts.splice(index, 1)
+    setNetwork({...networks})
+    updateUserProfile(sharedStates.token, sharedStates.userProfile)
+  }
+
   return (
       <>
-          <Form onSubmit={handleSubmit}>
-              <Form.Row>
+          <Form className="contact-form" onSubmit={handleSubmit} style={{ width: "90%", alignItems: "center"}}>
+              <Form.Row className="form-row">
                   <Col>
                       <Form.Control
                           type="text"
@@ -78,7 +86,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.email}
+                          value={networks.networkEmail}
                           onChange={handleEmail}
                           placeholder="Email" 
                       />
@@ -96,7 +104,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.company}
+                          value={networks.employer}
                           onChange={handleCompany}
                           placeholder="Company" 
                       />
@@ -114,7 +122,7 @@ export default function NetworkForm(props){
                   </Form.Row>
                   <Form.Row>
                   <Col>
-                      <Form.Control type="Submit" value="Submit" style={{ backgroundColor: '#c38d9e', width: "20%"}} />
+                      <Form.Control className= "sub-button" type="Submit" value="Submit"/>
                   </Col>
               </Form.Row>
           </Form>
@@ -122,19 +130,21 @@ export default function NetworkForm(props){
             sharedStates.userProfile.networkingContacts ?
                 (sharedStates.userProfile.networkingContacts.map((network, i) => {
                     return (
-                        <Card key = {i} style={{ width: '18rem', borderColor: '#41B3A3' }}>
-                            <Card.Header>{network.name}</Card.Header>
+                        <Card className="contact-card" key = {i} style={{ width: '18rem', borderColor: '#41B3A3' }}>
+                            <Card.Header className="contact-name">{network.name}</Card.Header>
                             <Card.Body>
-                            <Card.Title>{network.company}</Card.Title>
+                            <Card.Title>{network.employer}</Card.Title>
                             <Card.Text>
-                            {network.email}
-
+                            {network.networkEmail}
+                            </Card.Text>
+                            <Card.Text>
                             {network.phone}
                             </Card.Text>
                             <Card.Text>
                             Notes:
                             {network.notes}
                             </Card.Text>
+                            <i class="far fa-minus-square" onClick={handleDelete} style={{padding: "0 0 0 225px"}} ></i>
                         </Card.Body>
                         </Card>
                         )

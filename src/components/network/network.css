@@ -1,0 +1,44 @@
+.contact-card {
+  margin: 3% auto;
+  display: block;
+  justify-content: space-around;
+  flex-shrink: 1em;
+  text-align: center;
+  padding: auto;
+  width: 90%;
+  border-width: 3px;
+  border-color: #41B3A3;
+  -webkit-box-shadow: 0px 5px 10px  rgb(71,71,71);
+  -moz-box-shadow: 0px 5px 10px  rgb(71,71,71);
+  box-shadow: 0px 5px 10px  rgb(71,71,71);
+}
+
+.sub-button {
+    color: #C38D9E;
+    border-color: #C38D9E;
+    border-width: 2px;
+    margin: auto;
+    display: block;
+    -webkit-box-shadow: 0px 5px 10px  rgb(71,71,71);
+  -moz-box-shadow: 0px 5px 10px  rgb(71,71,71);
+  box-shadow: 0px 5px 10px  rgb(71,71,71);
+}
+
+.contact-form {
+    margin: 1em;
+}
+
+.form-row {
+    padding: 3px;
+}
+
+h1 {
+  text-align: center;
+  border-width: 0 0 1px 0;
+  border-style: dotted;
+}
+
+.contact-name {
+    font-weight: bold;
+    text-transform: uppercase;
+}
