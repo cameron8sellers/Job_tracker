@@ -33,19 +33,19 @@ const Materials = () => {
     } else{
         return (
             <div className="jsmContainer">
-                <Resume handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <Resume handleCopy={handleCopy}/>
                 <br />
-                <CoverLetter handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <CoverLetter handleCopy={handleCopy}/>
                 <br/>
-                <LinkedIn handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <LinkedIn handleCopy={handleCopy}/>
                 <br/>
-                <GitHub handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <GitHub handleCopy={handleCopy} />
                 <br/>
-                <Repl handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <Repl handleCopy={handleCopy} />
                 <br/>
-                <CodeSandbox handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <CodeSandbox handleCopy={handleCopy} />
                 <br/>
-                <Portfolio handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
+                <Portfolio handleCopy={handleCopy}/>
             </div>
         );
     }

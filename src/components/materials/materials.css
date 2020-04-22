@@ -7,10 +7,13 @@
 .jsmContainer-inputContainer{
     display: flex;
 }
+.jsmContainer-inputContainer__label{
+    width: 100%;
+}
 
 .jsmContainer-button{
     margin-left: 10px;
-
+    border-radius: .25rem;
 }
 
 .jsmContainer-row{
