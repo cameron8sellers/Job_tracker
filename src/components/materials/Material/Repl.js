@@ -1,12 +1,17 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import { InputGroupText, InputGroupAddon, Input, Form, FormGroup } from 'reactstrap';
 import { TrackerContext } from '../../../App'
 import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const Repl = ({handleURLChange, handleCopy, newURL}) => {
+const Repl = ({handleCopy}) => {
     const sharedStates = useContext(TrackerContext);
+    const [newURL, setNewURL] = useState(sharedStates.userProfile.jobSearchMaterials.repl)
+
+    const handleURLChange = e => {
+        setNewURL(e.target.value)
+    };
 
 
     const handleResumeSubmit = e => {
@@ -26,12 +31,14 @@ const Repl = ({handleURLChange, handleCopy, newURL}) => {
         <div className="jsmContainer-row">
             <Form onSubmit={handleResumeSubmit}>
                 <FormGroup className="jsmContainer-inputContainer">
-                    <InputGroupAddon addonType="prepend">
+                    <InputGroupAddon
+                        className="jsmContainer-inputContainer__label"
+                        addonType="prepend">
                         <InputGroupText>Repl.it</InputGroupText>
                     </InputGroupAddon>
                     <Input type="url"
                            id="replInput"
-                           value={sharedStates.userProfile.jobSearchMaterials.repl}
+                           value={newURL}
                            onChange={handleURLChange}/>
                 </FormGroup>
             </Form>
