@@ -20,24 +20,32 @@ const Materials = () => {
         setNewURL(e.target.value)
     };
 
+    const handleCopy = e => {
+        let element = document.getElementById(`${e.target.id}Input`);
+        element.select();
+        document.execCommand("copy");
+        e.target.focus();
+        console.log("Copying item ", element)
+    };
+
     if(!sharedStates.userProfile.hasOwnProperty("jobSearchMaterials")){
         return <Redirect to="/" />
     } else{
         return (
             <div className="jsmContainer">
-                <Resume handleURLChange={handleURLChange} newURL={newURL}/>
+                <Resume handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
                 <br />
-                <CoverLetter handleURLChange={handleURLChange} newURL={newURL}/>
+                <CoverLetter handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
                 <br/>
-                <LinkedIn handleURLChange={handleURLChange} newURL={newURL}/>
+                <LinkedIn handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
                 <br/>
-                <GitHub handleURLChange={handleURLChange} newURL={newURL}/>
+                <GitHub handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
                 <br/>
-                <Repl handleURLChange={handleURLChange} newURL={newURL}/>
+                <Repl handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
                 <br/>
-                <CodeSandbox handleURLChange={handleURLChange} newURL={newURL}/>
+                <CodeSandbox handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
                 <br/>
-                <Portfolio handleURLChange={handleURLChange} newURL={newURL}/>
+                <Portfolio handleURLChange={handleURLChange} handleCopy={handleCopy} newURL={newURL}/>
             </div>
         );
     }

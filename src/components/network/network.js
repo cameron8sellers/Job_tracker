@@ -6,11 +6,12 @@ import NetworkForm from '../network/networkForm'
 const Network = () => {
   return (
     <div>
+      <h1>Network</h1>
       <NetworkForm />
       {/*<NetworkSort />
       <ContactCard /> */}
-      <h1>No Access</h1>
 
+      
     </div>
   );
 };

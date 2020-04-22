@@ -5,23 +5,23 @@ import { TrackerContext } from "../../App"
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
   console.log(sharedStates)
-  const [networks, setNetwork] = useState({
+  const [networks, setNetwork] = useState([{
     name: "",
     email: "",
     phone: "",
     comapny: "",
     notes: ""
-  })
+  }])
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      setNetwork({
+      setNetwork([{
         name: "",
         email: "",
         phone: "",
         comapny: "",
         notes: ""
-      })
+      }])
       sharedStates.userProfile.networkingContacts.push(networks)
   }
 
@@ -57,27 +57,9 @@ export default function NetworkForm(props){
 
   const handleNote = (e) => {
     let newNote ={...networks}
-    newNote.note =e.target.value
+    newNote.notes =e.target.value
     setNetwork(newNote)
   }
-
-   {/*{Network.map((network, index) => {
-    return (
-      <Card  style={{ width: '18rem', borderColor: '#41B3a3' }}>
-      <Card.Header>{Network.Name}</Card.Header>
-      <Card.Body>
-      <Card.Title>{Network.Company}</Card.Title>
-      <Card.Text>
-       {Network.email}
-       {network.phone}
-      </Card.Text>
-       <Card.Text>
-       Notes:
-      {Network.Notes}
-      </Card.Text>
-    </Card.Body>
-   </Card>
-)} */}
 
   return (
       <>
@@ -124,7 +106,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.note}
+                          value={networks.notes}
                           onChange={handleNote}
                           placeholder="Notes" 
                       />
@@ -132,13 +114,32 @@ export default function NetworkForm(props){
                   </Form.Row>
                   <Form.Row>
                   <Col>
-                      <Form.Control type="Submit" value="Add Contact" style={{ backgroundColor: '#c38d9e', width: "10%"}} />
+                      <Form.Control type="Submit" value="Submit" style={{ backgroundColor: '#c38d9e', width: "20%"}} />
                   </Col>
               </Form.Row>
           </Form>
-          </>
-  )   
-} 
-    
-      
- 
+          {
+            sharedStates.userProfile.networkingContacts ?
+                (sharedStates.userProfile.networkingContacts.map((network, i) => {
+                    return (
+                        <Card  style={{ width: '18rem', borderColor: '#41B3A3' }}>
+                            <Card.Header>{network.Name}</Card.Header>
+                            <Card.Body>
+                            <Card.Title>{network.company}</Card.Title>
+                            <Card.Text>
+                            {network.email}
+                            {network.phone}
+                            </Card.Text>
+                            <Card.Text>
+                            Notes:
+                            {network.Notes}
+                            </Card.Text>
+                        </Card.Body>
+                        </Card>
+                        )
+                    }) 
+                ) : " "
+            }
+      </>
+    )  
+    } 

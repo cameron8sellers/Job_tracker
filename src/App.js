@@ -4,7 +4,7 @@ import LandingPage from "./components/landingPage/landPage";
 import resourcePage from "./components/resources/resources";
 import Network from "./components/network/network";
 import Materials from "./components/materials/materials";
-import companies_Applications from "./components/companies/companies";
+import CompaniesApplications from "./components/companies/companies";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { validToken } from './services/api-helper-userAuth'
@@ -66,7 +66,8 @@ function App() {
                     <Route path="/resources" component={resourcePage} />
                     <Route path="/network" component={loggedIn ? Network : NoAccess} />
                     <Route path="/materials" component={loggedIn ? Materials : NoAccess} />
-                    <Route path="/companies" component={loggedIn ? companies_Applications : NoAccess} />;
+                    <Route path="/companies" component={loggedIn ? CompaniesApplications : NoAccess} />
+                    
                 </div>
             </TrackerContext.Provider>
         </div>
