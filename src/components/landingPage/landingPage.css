@@ -1,5 +1,17 @@
 .landingPage-contentContainer{
-    max-width: 80%;
-    margin: 0 auto;
+    max-width: 60%;
+    margin: 50px auto;
 
+}
+
+.landingPage-contentContainer > p{
+    text-align: center;
+}
+
+.landingPageContainer{
+    display: flex;
+}
+
+.landingPage-authContainer{
+    margin: 25px;
 }
