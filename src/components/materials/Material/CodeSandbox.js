@@ -1,12 +1,17 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import { InputGroupText, InputGroupAddon, Input, Form, FormGroup } from 'reactstrap';
 import { TrackerContext } from '../../../App'
 import "../materials.css";
 import { updateUserProfile } from '../../../services/api-helper-userProfile'
 
 
-const CodeSandbox = ({handleURLChange, handleCopy, newURL}) => {
+const CodeSandbox = ({handleCopy}) => {
     const sharedStates = useContext(TrackerContext);
+    const [newURL, setNewURL] = useState(sharedStates.userProfile.jobSearchMaterials.codeSandBox)
+
+    const handleURLChange = e => {
+        setNewURL(e.target.value)
+    };
 
     const handleResumeSubmit = e => {
         e.preventDefault();
@@ -25,12 +30,14 @@ const CodeSandbox = ({handleURLChange, handleCopy, newURL}) => {
         <div className="jsmContainer-row">
             <Form onSubmit={handleResumeSubmit}>
                 <FormGroup className="jsmContainer-inputContainer">
-                    <InputGroupAddon addonType="prepend">
+                    <InputGroupAddon
+                        addonType="prepend"
+                        className="jsmContainer-inputContainer__label">
                         <InputGroupText>CodeSandbox</InputGroupText>
                     </InputGroupAddon>
                     <Input type="url"
                            id="codeSandBoxInput"
-                           value={sharedStates.userProfile.jobSearchMaterials.codeSandBox}
+                           value={newURL}
                            onChange={handleURLChange}/>
 
                 </FormGroup>

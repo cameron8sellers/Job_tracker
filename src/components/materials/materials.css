@@ -5,18 +5,23 @@
 }
 
 .jsmContainer-inputContainer{
-    display: flex;
+    display: block;
+}
+
+.jsmContainer-inputContainer__label{
+    width: 100%;
 }
 
 .jsmContainer-button{
     margin-left: 10px;
-
+    border-radius: .25rem;
+    align-self: stretch;
 }
 
 .jsmContainer-row{
     display: flex;
     align-items: center;
-    width: 100%;
+    width: inherit;
     justify-content: space-between;
 }
 
@@ -26,4 +31,41 @@
 
 .jsmContainer-row > form{
     width: 100%;
+}
+
+.jsm-Container-instructions{
+    text-align: center;
+    margin: 15px auto;
+    max-width: 425px;
+}
+
+.jsmContainer-overall{
+
+}
+
+@media (min-width: 768px){
+    .jsmContainer{
+        width: 45em;
+        margin: 0 auto;
+    }
+
+    .jsmContainer-row{
+        width: 100%;
+    }
+
+    .jsmContainer-inputContainer__label{
+        width: auto;
+    }
+
+    .jsmContainer-inputContainer{
+        display: flex;
+    }
+
+    .jsmContainer-button{
+        align-self: center;
+    }
+    
+    li.nav-item{
+        cursor: pointer;
+    }
 }

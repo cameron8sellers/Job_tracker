@@ -4,8 +4,10 @@ import "./landingPage.css"
 
 const LandingPage = () => {
   return (
-    <div>
-        <Account/>
+    <div className="landingPageContainer">
+        <div className="landingPage-authContainer">
+            <Account/>
+        </div>
         <div className="landingPage-contentContainer">
             <p>Job Tracker was built to keep you focused on our
                 five themes that are designed to set you up for your job search
@@ -19,8 +21,6 @@ const LandingPage = () => {
                 interest, and job search strategies!
             </p>
         </div>
-
-
     </div>
   );
 };
