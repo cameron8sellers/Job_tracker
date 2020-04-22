@@ -12,7 +12,7 @@ import { getResources } from './services/api-helper-Resources'
 import NoAccess from "./components/Auth/NoAccess"
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
     const [createModal, setCreateModal] = useState(true);
     const [token, setToken] =  useState(localStorage.getItem("token"));
     const [resources, setResources] = useState({});

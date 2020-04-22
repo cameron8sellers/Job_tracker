@@ -15,13 +15,13 @@ export default function NetworkForm(props){
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      setNetwork([{
+      setNetwork({
         name: "",
         email: "",
         phone: "",
         comapny: "",
         notes: ""
-      }])
+      })
       sharedStates.userProfile.networkingContacts.push(networks)
   }
 
@@ -122,17 +122,18 @@ export default function NetworkForm(props){
             sharedStates.userProfile.networkingContacts ?
                 (sharedStates.userProfile.networkingContacts.map((network, i) => {
                     return (
-                        <Card  style={{ width: '18rem', borderColor: '#41B3A3' }}>
-                            <Card.Header>{network.Name}</Card.Header>
+                        <Card key = {i} style={{ width: '18rem', borderColor: '#41B3A3' }}>
+                            <Card.Header>{network.name}</Card.Header>
                             <Card.Body>
                             <Card.Title>{network.company}</Card.Title>
                             <Card.Text>
                             {network.email}
+
                             {network.phone}
                             </Card.Text>
                             <Card.Text>
                             Notes:
-                            {network.Notes}
+                            {network.notes}
                             </Card.Text>
                         </Card.Body>
                         </Card>
