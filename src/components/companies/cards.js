@@ -1,9 +1,11 @@
 import React, { useContext } from "react"
 import { Card } from "react-bootstrap"
 import { TrackerContext } from "../../App"
+import Moment from "react-moment"
 
-export default function Cards(){
+export default function Cards( {handleDelete} ){
     const sharedStates = useContext(TrackerContext)
+
     return (
         <>
             {
@@ -20,12 +22,12 @@ export default function Cards(){
                                         Job Link: {company.jobURL}
                                     </Card.Text>
                                     <Card.Text>
-                                        Date Submitted: {company.date}
+                                        Date Submitted: <Moment format="MM/DD/YYYY">{company.date}</Moment>
                                     </Card.Text>
                                     <Card.Text>
                                         Contact: {company.pointOfContact}
                                     </Card.Text>
-                                    <i className="fas fa-plus"></i>
+                                    <i onClick={handleDelete} class="far fa-minus-square"></i>
                                 </Card.Body>
                             </Card>
                         )
