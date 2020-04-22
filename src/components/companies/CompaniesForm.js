@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 import { Form } from "react-bootstrap"
-import { TrackerContext } from "../../App";
+import { TrackerContext } from "../../App"
+import { updateUserProfile } from '../../services/api-helper-userProfile'
 import CompanyName from "./CompanyName"
 import JobPosition from "./JobPosition"
 import JobURL from "./JobURL"
@@ -23,6 +24,10 @@ export default function CompaniesForm(){
     
     const handleSubmit = (e) => {
         e.preventDefault()
+        sharedStates.userProfile.targetCompanies.push(companies)
+        updateUserProfile(sharedStates.token, sharedStates.userProfile).then(() => {
+            console.log("success")
+        })
         setCompanies(
             {
                 companyName: "",
@@ -32,7 +37,14 @@ export default function CompaniesForm(){
                 pointOfContact: ""
             }
         )
-        sharedStates.userProfile.targetCompanies.push(companies)
+    }
+
+    const handleDelete = (index) => {
+        sharedStates.userProfile.targetCompanies.splice(index, 1)
+        setCompanies({ ...companies })
+        updateUserProfile(sharedStates.token, sharedStates.userProfile).then(() => {
+            console.log("success")
+        })
     }
 
     return (
@@ -45,7 +57,7 @@ export default function CompaniesForm(){
                 <PointOfContact companies={companies} setCompanies={setCompanies} />
                 <Form.Control type="Submit" value="Submit" />
             </Form>
-            <Cards />
+            <Cards handleDelete={handleDelete} />
         </>
     )
 }
