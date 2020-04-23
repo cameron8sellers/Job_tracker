@@ -10,8 +10,16 @@
 
 .landingPageContainer{
     display: flex;
+    flex-direction: column;
 }
 
 .landingPage-authContainer{
     margin: 25px;
+}
+
+@media (min-width: 768px){
+    .landingPageContainer{
+        flex-direction: row;
+    }
+
 }
