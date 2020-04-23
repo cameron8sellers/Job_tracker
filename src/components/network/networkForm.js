@@ -71,7 +71,7 @@ export default function NetworkForm(props){
 
   return (
       <>
-          <Form className="contact-form" onSubmit={handleSubmit} style={{ width: "90%", alignItems: "center"}}>
+          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
               <Form.Row className="form-row">
                   <Col>
                       <Form.Control
@@ -130,18 +130,18 @@ export default function NetworkForm(props){
             sharedStates.userProfile.networkingContacts ?
                 (sharedStates.userProfile.networkingContacts.map((network, i) => {
                     return (
-                        <Card className="contact-card" key = {i} style={{ width: '18rem', borderColor: '#41B3A3' }}>
+                        <Card className="contact-card" key = {i} style={{ width: '18rem', borderColor: '#41B3A3', border: "2px" }}>
                             <Card.Header className="contact-name">{network.name}</Card.Header>
                             <Card.Body>
-                            <Card.Title>{network.employer}</Card.Title>
+                            <Card.Title><span>Company:</span> {network.employer}</Card.Title>
                             <Card.Text>
-                            {network.networkEmail}
+                            <span>Email:</span> {network.networkEmail}
                             </Card.Text>
                             <Card.Text>
-                            {network.phone}
+                            <span>Phone:</span> {network.phone}
                             </Card.Text>
                             <Card.Text>
-                            Notes:
+                            <span>Notes:</span>
                             {network.notes}
                             </Card.Text>
                             <i class="far fa-minus-square" onClick={handleDelete} style={{padding: "0 0 0 225px"}} ></i>

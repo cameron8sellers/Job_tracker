@@ -3,15 +3,16 @@
   display: block;
   justify-content: space-around;
   flex-shrink: 1em;
-  text-align: center;
+  text-align: left;
   padding: auto;
   width: 90%;
   border-width: 3px;
   border-color: #41B3A3;
   -webkit-box-shadow: 0px 5px 10px  rgb(71,71,71);
   -moz-box-shadow: 0px 5px 10px  rgb(71,71,71);
-  box-shadow: 0px 5px 10px  rgb(71,71,71);
+  box-shadow: 0px 0px 36px -9px rgba(195,141,158,1);
 }
+
 
 .sub-button {
     color: #C38D9E;
@@ -22,7 +23,7 @@
     -webkit-box-shadow: 0px 5px 10px  rgb(71,71,71);
   -moz-box-shadow: 0px 5px 10px  rgb(71,71,71);
   box-shadow: 0px 5px 10px  rgb(71,71,71);
-}
+} 
 
 .contact-form {
     margin: 1em;
@@ -35,10 +36,69 @@
 h1 {
   text-align: center;
   border-width: 0 0 1px 0;
-  border-style: dotted;
+  color: grey;
+  padding-top: 20px;
+}
+
+.card-title {
+  font-weight: bold;
 }
 
 .contact-name {
     font-weight: bold;
+    text-align: center;
     text-transform: uppercase;
+}
+
+.contact-form > .form-row:nth-of-type(1) >.col:nth-of-type(1), .contact-form > .form-row:nth-of-type(3) >.col:nth-of-type(1){
+  padding-right: 0;
+}
+
+.contact-form > .form-row:nth-of-type(1) >.col:nth-of-type(2), .contact-form > .form-row:nth-of-type(3) >.col:nth-of-type(2){
+  padding-left: 0;
+}
+
+.contact-form > .form-row:nth-of-type(2){
+  padding: 1% 0 1% 0;
+}
+
+.contact-form > .sub-button {
+  font-weight: bold;
+  display: block;
+  width: 150px;
+  color: #c38d9e;
+  border-color: #c38d9e;
+  margin: 1% auto;
+}
+
+.sub-button:hover {
+  box-shadow: inset 0px 0px 36px -9px rgba(195,141,158,1);
+}
+
+.contact-card {
+  display: block;
+  margin: 3% auto;
+  border: 2px;
+  border-color: #41B3A3;
+  box-shadow: 0px 0px 36px -9px rgba(195,141,158,1);
+}
+
+.container > .row > .contact-card > .card-header {
+  color: #41b3a3;
+  font-size: 20px;
+  font-family: 'Rammetto One', cursive;
+}
+
+.container > .row > .contact-card > .card-body > p:nth-of-type(2) > a {
+  color: #41b3a3;
+  text-decoration: none;
+}
+
+.far {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+p > span {
+  font-weight: bold;
 }
