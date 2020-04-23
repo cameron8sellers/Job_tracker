@@ -9,11 +9,15 @@ export default function CompanyName( {companies, setCompanies} ){
     }
 
     return (
-        <Form.Control
-            type="text"
-            value={companies.companyName}
-            onChange={handleCompanyName}
-            placeholder="Company Name" 
-        />
+        <>
+            <Form.Group>
+                <Form.Label>Company Name:</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={companies.companyName}
+                    onChange={handleCompanyName}
+                />
+            </Form.Group>
+        </>
     )
 }

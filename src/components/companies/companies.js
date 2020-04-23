@@ -3,7 +3,7 @@ import CompaniesForm from "./CompaniesForm"
 
 const CompaniesApplications = () => {
   return (
-    <div>
+    <div className="companies-background">
         <CompaniesForm />
     </div>
   );

@@ -12,7 +12,7 @@ export default function Cards( {handleDelete} ){
                 sharedStates.userProfile.targetCompanies ? 
                 ( sharedStates.userProfile.targetCompanies.map((company, index) => { 
                     return ( 
-                            <Card className="companies-card" key={index} style={{ width: '21rem', borderColor: '#41b3a3' }}>
+                            <Card className="companies-card" key={index} style={{ width: '21rem' }}>
                                 <Card.Header style={{ textAlign: "center" }}>{company.companyName}</Card.Header>
                                 <Card.Body>
                                     <Card.Text>

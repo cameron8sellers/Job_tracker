@@ -1,3 +1,8 @@
+.companies-background {
+    background-image: url("https://res.cloudinary.com/doaftkgbv/image/upload/v1587658644/so-white_bpmwjw.png");
+    height: 100vh;
+}
+
 .companies > .form-row:nth-of-type(1) >.col:nth-of-type(1), .companies > .form-row:nth-of-type(3) >.col:nth-of-type(1){
     padding-right: 0;
 }
@@ -10,13 +15,17 @@
     padding: 1% 0 1% 0;
 }
 
+.companies .form-control {
+    border-color: #41b3a3;
+}
+
 .companies > .submit {
     font-weight: bold;
     display: block;
     width: 150px;
     color: #c38d9e;
     border-color: #c38d9e;
-    margin: 1% auto;
+    margin: 15px auto;
 }
 
 .submit:hover {
@@ -25,7 +34,7 @@
 
 .companies-card {
     display: block;
-    margin: 3% auto;
+    margin: auto;
     border: none;
     box-shadow: 0px 0px 36px -9px rgba(195,141,158,1);
 }

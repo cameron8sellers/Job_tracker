@@ -13,7 +13,6 @@ import "./companies.css"
 
 
 export default function CompaniesForm(){
-    const isTablet = useMediaQuery({query: "(min-width:768px)"})
     const isDesktop = useMediaQuery({query: "(min-width:1020px)"}) 
     const sharedStates = useContext(TrackerContext);
     const [companies, setCompanies] = useState([

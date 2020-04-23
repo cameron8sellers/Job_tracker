@@ -9,11 +9,15 @@ export default function JobPosition( {companies, setCompanies} ){
     }
 
     return (
-        <Form.Control
-            type="text"
-            value={companies.jobPosition}
-            onChange={handleJobPosition}
-            placeholder="Job Position" 
-        />
+        <>
+        <Form.Group>
+            <Form.Label>Job Position:</Form.Label>
+            <Form.Control
+                type="text"
+                value={companies.jobPosition}
+                onChange={handleJobPosition}
+            />
+        </Form.Group>
+        </>
     )
 }

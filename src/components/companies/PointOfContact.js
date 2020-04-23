@@ -9,11 +9,15 @@ export default function PointOfContact( {companies, setCompanies} ){
     }
 
     return (
-        <Form.Control
-            type="text"
-            value={companies.pointOfContact}
-            onChange={handlePointOfContact}
-            placeholder="Point of Contact" 
-        />
+        <>
+            <Form.Group>
+                <Form.Label>Point of Contact:</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={companies.pointOfContact}
+                    onChange={handlePointOfContact}
+                />
+            </Form.Group>
+        </>
     )
 }
