@@ -24,8 +24,8 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
         setCreateModal(true)
     }
 
-    const logIn = <NavbarText><Link to="/"  onClick={loadSignIn}>Log In</Link></NavbarText>;
-    const logOut = <NavbarText><Link to="/" onClick={logUserOut}>Log Out</Link></NavbarText>;
+    const logIn = <NavbarText className="navbar-text-scale"><Link to="/"  onClick={loadSignIn}>Log In</Link></NavbarText>;
+    const logOut = <NavbarText className="navbar-text-scale"><Link to="/" onClick={logUserOut}>Log Out</Link></NavbarText>;
 
     return (
         <div className="header">
@@ -47,12 +47,12 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
                 ) :
                 (
                     <Navbar color="light" light expand="md">
-                        <Link className="navbar-brand" to="/" onClick={handleCreateAccount}>Job Tracker</Link>
+                        <Link className="navbar-brand navbar-brand-scale" to="/" onClick={handleCreateAccount}>Job Tracker</Link>
                         <Nav className="mr-auto">
-                            <Link className="nav-link" to="/companies">Target Companies Applications</Link>
-                            <Link className="nav-link" to="/materials">Job Search Materials</Link>
-                            <Link className="nav-link" to="/network">Networking Contacts</Link>
-                            <Link className="nav-link" to="/resources">Resources</Link>
+                            <Link className="nav-link nav-link-scale" to="/companies">Target Companies Applications</Link>
+                            <Link className="nav-link nav-link-scale" to="/materials">Job Search Materials</Link>
+                            <Link className="nav-link nav-link-scale" to="/network">Networking Contacts</Link>
+                            <Link className="nav-link nav-link-scale" to="/resources">Resources</Link>
                         </Nav>
                         {loggedIn ? logOut : logIn}
                     </Navbar>

@@ -65,6 +65,10 @@ const Materials = () => {
                     ) :
                     (
                         <>
+                            <p className="jsm-Container-instructions">Use the Job Search Materials page to keep track of the essential
+                                documents needed when applying for jobs. Log into Job Tracker while
+                                applying and you can quickly copy and paste the information into the
+                                application! </p>
                             <Nav tabs className="jsmContainer">
                                 <NavItem>
                                     <NavLink
