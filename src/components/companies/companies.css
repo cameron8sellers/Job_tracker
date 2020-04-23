@@ -1,0 +1,51 @@
+.companies > .form-row:nth-of-type(1) >.col:nth-of-type(1), .companies > .form-row:nth-of-type(3) >.col:nth-of-type(1){
+    padding-right: 0;
+}
+
+.companies > .form-row:nth-of-type(1) >.col:nth-of-type(2), .companies > .form-row:nth-of-type(3) >.col:nth-of-type(2){
+    padding-left: 0;
+}
+
+.companies > .form-row:nth-of-type(2){
+    padding: 1% 0 1% 0;
+}
+
+.companies > .submit {
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    color: #c38d9e;
+    border-color: #c38d9e;
+    margin: 1% auto;
+}
+
+.submit:hover {
+    box-shadow: inset 0px 0px 36px -9px rgba(195,141,158,1);
+}
+
+.companies-card {
+    display: block;
+    margin: 3% auto;
+    border: none;
+    box-shadow: 0px 0px 36px -9px rgba(195,141,158,1);
+}
+
+.container > .row > .companies-card > .card-header {
+    color: #41b3a3;
+    font-size: 20px;
+    font-family: 'Rammetto One', cursive;
+}
+
+.container > .row > .companies-card > .card-body > p:nth-of-type(2) > a {
+    color: #41b3a3;
+    text-decoration: none;
+}
+
+.far {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+p > span {
+    font-weight: bold;
+}
