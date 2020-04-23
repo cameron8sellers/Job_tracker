@@ -32,14 +32,14 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
             { isMobile ?
                 (
                     <Navbar color="faded" light>
-                        <Link className="navbar-brand" to="/" onClick={handleCreateAccount}>Job Tracker</Link>
+                        <NavbarBrand href="/" onClick={handleCreateAccount}>Job Tracker</NavbarBrand>
                         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
                         <Collapse isOpen={!collapsed} navbar>
                             <Nav navbar>
-                                <Link className="nav-link" to="/companies">Target Companies Applications</Link>
-                                <Link className="nav-link" to="/materials">Job Search Materials</Link>
-                                <Link className="nav-link" to="/network">Networking Contacts</Link>
-                                <Link className="nav-link" to="/resources">Resources</Link>
+                                <Link style={{color: "#41b3a3"}} className="nav-link" to="/companies">Target Companies Applications</Link>
+                                <Link style={{color: "#c38d9e"}} className="nav-link" to="/materials">Job Search Materials</Link>
+                                <Link style={{color: "#41b3a3"}} className="nav-link" to="/network">Networking Contacts</Link>
+                                <Link style={{color: "#c38d9e"}} className="nav-link" to="/resources">Resources</Link>
                                 {loggedIn ? logOut : logIn}
                             </Nav>
                         </Collapse>
@@ -47,12 +47,12 @@ function Header({loggedIn, setLoggedIn, setCreateModal}) {
                 ) :
                 (
                     <Navbar color="light" light expand="md">
-                        <Link className="navbar-brand navbar-brand-scale" to="/" onClick={handleCreateAccount}>Job Tracker</Link>
                         <Nav className="mr-auto">
-                            <Link className="nav-link nav-link-scale" to="/companies">Target Companies Applications</Link>
-                            <Link className="nav-link nav-link-scale" to="/materials">Job Search Materials</Link>
-                            <Link className="nav-link nav-link-scale" to="/network">Networking Contacts</Link>
-                            <Link className="nav-link nav-link-scale" to="/resources">Resources</Link>
+                            <Link style={{color: "#c38d9e"}} className="nav-link nav-link-scale" to="/companies">Target Companies Applications</Link>
+                            <Link style={{color: "#41b3a3"}} className="nav-link nav-link-scale" to="/materials">Job Search Materials</Link>
+                            <Link  className="navbar-brand navbar-brand-scale" to="/" onClick={handleCreateAccount}>Job Tracker</Link>
+                            <Link style={{color: "#41b3a3"}} className="nav-link nav-link-scale" to="/network">Networking Contacts</Link>
+                            <Link style={{color: "#c38d9e"}} className="nav-link nav-link-scale" to="/resources">Resources</Link>
                         </Nav>
                         {loggedIn ? logOut : logIn}
                     </Navbar>
