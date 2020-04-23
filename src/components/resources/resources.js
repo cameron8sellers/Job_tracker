@@ -1,17 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { TrackerContext } from "../../App";
 import { Card } from "reactstrap";
-import {
-  getResources,
-  updateResource,
-  deleteResource
-} from "../../services/api-helper-Resources";
+
 import "./resources.css";
 
 const ResourcesPage = () => {
-  const [resources, setResources] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
   const sharedStates = useContext(TrackerContext);
   console.log(sharedStates.resources);
 
@@ -19,7 +12,7 @@ const ResourcesPage = () => {
     (resource, index) => {
       return (
         <div>
-          <a href={resource.url}>
+          <a href={resource.url} target="blank">
             <li>{resource.name}</li>
           </a>
         </div>
@@ -31,7 +24,7 @@ const ResourcesPage = () => {
     (resource, index) => {
       return (
         <div>
-          <a href={resource.url}>
+          <a href={resource.url} target="blank">
             <li>{resource.name}</li>
           </a>
         </div>
@@ -43,7 +36,7 @@ const ResourcesPage = () => {
     (resource, index) => {
       return (
         <div>
-          <a href={resource.url}>
+          <a href={resource.url} target="blank">
             <li>{resource.name}</li>
           </a>
         </div>
@@ -55,7 +48,7 @@ const ResourcesPage = () => {
     (resource, index) => {
       return (
         <div>
-          <a href={resource.url}>
+          <a href={resource.url} target="blank">
             <li>{resource.name}</li>
           </a>
         </div>
@@ -66,7 +59,7 @@ const ResourcesPage = () => {
     (resource, index) => {
       return (
         <div>
-          <a href={resource.url}>
+          <a href={resource.url} target="blank">
             <li>{resource.name}</li>
           </a>
         </div>
@@ -76,7 +69,7 @@ const ResourcesPage = () => {
   const tech = sharedStates.resources["Technical"].map((resource, index) => {
     return (
       <div>
-        <a href={resource.url}>
+        <a href={resource.url} target="blank">
           <li>{resource.name}</li>
         </a>
       </div>
