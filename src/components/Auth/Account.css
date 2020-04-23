@@ -23,3 +23,8 @@
 span.navbar-text{
     cursor: pointer;
 }
+
+.noAccess{
+    margin-top: 40px;
+    text-align: center;
+}

@@ -2,6 +2,7 @@
     width: 400px;
     margin: 0 auto;
     padding-top: 30px;
+    /*background-color: white;*/
 }
 
 .jsmContainer-inputContainer{
@@ -16,6 +17,9 @@
     margin-left: 10px;
     border-radius: .25rem;
     align-self: stretch;
+    background-color: #41b3a3;
+    color: white;
+    font-weight: bold;
 }
 
 .jsmContainer-row{
@@ -43,14 +47,31 @@
 
 }
 
+.input-group-text{
+    background-color: #c38d9e;
+    color: white;
+    font-weight: bold;
+}
+
+.materials-background{
+    background-image: url("https://res.cloudinary.com/doaftkgbv/image/upload/v1587658644/so-white_bpmwjw.png");
+    height: 100vh;
+}
+
 @media (min-width: 768px){
     .jsmContainer{
-        width: 45em;
+        max-width: 900px;
+        width: calc(60vw + 22vh);
         margin: 0 auto;
     }
 
+    .jsmContainer > li > a {
+        font-size: clamp(10px ,1vw + 0.5vh, 20px);
+    }
+
     .jsmContainer-row{
-        width: 100%;
+        width: 90%;
+        margin: 35px auto;
     }
 
     .jsmContainer-inputContainer__label{
@@ -67,5 +88,34 @@
     
     li.nav-item{
         cursor: pointer;
+    }
+
+    .tab-content{
+        border-right: 1px solid #41b3a3;
+        border-bottom: 1px solid #41b3a3;
+        border-left: 1px solid #41b3a3;
+        width: calc(60vw + 22vh);
+        max-width: 899px;
+        margin: 0 auto;
+        box-shadow: 0px 10px 36px -9px rgba(195, 141, 158, 1);
+        background-color: white;
+    }
+
+    .nav-tabs{
+        border-bottom: 1px solid #41b3a3;
+    }
+
+    .nav-tabs .nav-link.active{
+        border-color: #41b3a3 #41b3a3 #ffffff;
+    }
+
+    .jsmContainer-button{
+        background-color: white;
+        color: #41b3a3;
+    }
+
+    .input-group-text{
+        background-color: #e9ecef;
+        color: #495057;
     }
 }
