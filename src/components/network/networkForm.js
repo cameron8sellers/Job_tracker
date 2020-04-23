@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react"
-import { Form, Col, Button, Card } from "react-bootstrap"
+import { Form, Col, Button, Card, Row, Container } from "react-bootstrap"
 import { TrackerContext } from "../../App"
 import { updateUserProfile } from "../../services/api-helper-userProfile";
+import { useMediaQuery } from "react-responsive";
 
 
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
+  const isDesktop = useMediaQuery({query: "(min-width:1020px)"});
   console.log(sharedStates)
   const [networks, setNetwork] = useState([{
     name: "",
@@ -71,6 +73,8 @@ export default function NetworkForm(props){
 
   return (
       <>
+      { isDesktop ?
+      (
           <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
               <Form.Row className="form-row">
                   <Col>
@@ -126,11 +130,70 @@ export default function NetworkForm(props){
                   </Col>
               </Form.Row>
           </Form>
+      ) : (
+        <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto"}}>
+              <Form.Row className="form-row">
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.name}
+                          onChange={handleNetwork}
+                          placeholder="Name" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.networkEmail}
+                          onChange={handleEmail}
+                          placeholder="Email" 
+                      />
+                  </Col>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.phone}
+                          onChange={handlePhone}
+                          placeholder="Phone" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.employer}
+                          onChange={handleCompany}
+                          placeholder="Company" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.notes}
+                          onChange={handleNote}
+                          placeholder="Notes" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control className= "sub-button" type="Submit" value="Submit"/>
+                  </Col>
+              </Form.Row>
+          </Form>
+      )}
           {
             sharedStates.userProfile.networkingContacts ?
                 (sharedStates.userProfile.networkingContacts.map((network, i) => {
                     return (
-                        <Card className="contact-card" key = {i} style={{ width: '18rem', borderColor: '#41B3A3', border: "2px" }}>
+                       <Container>
+                         <Row>
+                            <Card className="contact-card" key = {i} style={{ width: '18rem', borderColor: '#41B3A3', border: "2px" }}>
                             <Card.Header className="contact-name">{network.name}</Card.Header>
                             <Card.Body>
                             <Card.Title><span>Company:</span> {network.employer}</Card.Title>
@@ -147,6 +210,8 @@ export default function NetworkForm(props){
                             <i class="far fa-minus-square" onClick={handleDelete} style={{padding: "0 0 0 225px"}} ></i>
                         </Card.Body>
                         </Card>
+                        </Row>
+                        </Container>
                         )
                     }) 
                 ) : " "
