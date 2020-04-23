@@ -13,7 +13,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -25,7 +25,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -37,7 +37,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -49,7 +49,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -60,7 +60,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -70,7 +70,7 @@ const ResourcesPage = () => {
     return (
       <div>
         <a href={resource.url}>
-          <li>{resource.name}</li>
+          <li className="link">{resource.name}</li>
         </a>
       </div>
     );
