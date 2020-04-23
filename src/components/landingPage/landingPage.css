@@ -11,6 +11,8 @@
 .landingPageContainer{
     display: flex;
     flex-direction: column;
+    background-image: url("https://res.cloudinary.com/doaftkgbv/image/upload/v1587658644/so-white_bpmwjw.png");
+    height: 100vh;
 }
 
 .landingPage-authContainer{
