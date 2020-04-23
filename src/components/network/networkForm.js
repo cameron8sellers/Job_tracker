@@ -3,7 +3,7 @@ import { Form, Col, Button, Card, Row, Container } from "react-bootstrap"
 import { TrackerContext } from "../../App"
 import { updateUserProfile } from "../../services/api-helper-userProfile";
 import { useMediaQuery } from "react-responsive";
-
+import contactCard from "./contactCards"
 
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
@@ -185,37 +185,13 @@ export default function NetworkForm(props){
                       <Form.Control className= "sub-button" type="Submit" value="Submit"/>
                   </Col>
               </Form.Row>
-          </Form>
+          </Form> 
       )}
-          {
-            sharedStates.userProfile.networkingContacts ?
-                (sharedStates.userProfile.networkingContacts.map((network, i) => {
-                    return (
-                       <Container>
-                         <Row>
-                            <Card className="contact-card" key = {i} style={{ width: '18rem', borderColor: '#41B3A3', border: "2px" }}>
-                            <Card.Header className="contact-name">{network.name}</Card.Header>
-                            <Card.Body>
-                            <Card.Title><span>Company:</span> {network.employer}</Card.Title>
-                            <Card.Text>
-                            <span>Email:</span> {network.networkEmail}
-                            </Card.Text>
-                            <Card.Text>
-                            <span>Phone:</span> {network.phone}
-                            </Card.Text>
-                            <Card.Text>
-                            <span>Notes:</span>
-                            {network.notes}
-                            </Card.Text>
-                            <i class="far fa-minus-square" onClick={handleDelete} style={{padding: "0 0 0 225px"}} ></i>
-                        </Card.Body>
-                        </Card>
-                        </Row>
-                        </Container>
-                        )
-                    }) 
-                ) : " "
-            }
+       <Container>
+            <Row>
+            <contactCard handleDelete={handleDelete} />
+            </Row>
+          </Container>
       </>
     )  
     } 
