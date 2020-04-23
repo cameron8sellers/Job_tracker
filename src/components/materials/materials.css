@@ -45,8 +45,13 @@
 
 @media (min-width: 768px){
     .jsmContainer{
-        width: 45em;
+        max-width: 900px;
+        width: calc(60vw + 22vh);
         margin: 0 auto;
+    }
+
+    .jsmContainer > li > a {
+        font-size: clamp(10px ,1vw + 0.5vh, 20px);
     }
 
     .jsmContainer-row{

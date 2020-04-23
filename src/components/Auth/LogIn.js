@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, {useContext, useState} from 'react';
 
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Alert } from 'reactstrap';
 import { authenticateUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
 import "./Account.css";
 
 function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
     const sharedStates = useContext(TrackerContext);
+    const [loginError, setLoginError] = useState(false)
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -17,9 +18,11 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
                 sharedStates.setToken(json.token);
                 sharedStates.setUserProfile(json.userProfile);
                 console.log("User Authenticated");
+                setLoginError(false)
             } else {
-                sharedStates.setLoggedIn(false);
                 console.log("Error Authenticating User: ", json.error);
+                sharedStates.setLoggedIn(false);
+                setLoginError(true)
             }
         }
     };
@@ -45,6 +48,7 @@ function Login({handleUserNameChange, handlePasswordChange, userCreds}) {
                         className="loginContainer-input"/>
                 </FormGroup>
                 <Button className="loginContainer-Button">Log In</Button>
+                {loginError ? <Alert color="danger"> Incorrect Username or Password </Alert> : ""}
                 <p>Dont' forget your password!</p>
                 <p>Job Tracker does not have access
                     to your password and cannot provide access to your account
