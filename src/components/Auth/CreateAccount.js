@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Form, FormGroup, Input, Alert } from 'reactstrap';
 import { registerNewUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
 import "./Account.css";
@@ -7,6 +7,7 @@ import "./Account.css";
 
 function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) {
     const sharedStates = useContext(TrackerContext);
+    const [loginError, setLoginError] = useState(false)
 
     const handleCreateAccount = async (e) => {
         e.preventDefault();
@@ -18,9 +19,11 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
                 sharedStates.setToken(json.token);
                 sharedStates.setUserProfile(json.userProfile);
                 console.log("User successfully created");
+                setLoginError(false)
             } else{
                 sharedStates.setLoggedIn(false);
                 console.log("Error creating account: ", json.error)
+                setLoginError(true)
             }
         }
     };
@@ -45,6 +48,7 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
                         className="loginContainer-input"/>
                 </FormGroup>
                 <Button className="loginContainer-Button">Sign Up</Button>
+                {loginError ? <Alert color="danger"> Error Creating Account </Alert> : ""}
                 <p>Dont' forget your password!</p>
                 <p>Job Tracker does not have access
                     to your password and cannot provide access to your account

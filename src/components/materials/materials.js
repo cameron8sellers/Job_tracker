@@ -41,7 +41,7 @@ const Materials = () => {
         return (
             <div>
                 {isMobile ? (
-                    <>
+                    <div className="materials-background">
                         <p className="jsm-Container-instructions">Use the Job Search Materials page to keep track of the essential
                             documents needed when applying for jobs. Log into Job Tracker while
                             applying and you can quickly copy and paste the information into the
@@ -61,93 +61,99 @@ const Materials = () => {
                             <br/>
                             <Portfolio handleCopy={handleCopy}/>
                         </div>
-                    </>
+                    </div>
                     ) :
                     (
-                        <>
-                            <Nav tabs className="jsmContainer">
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '1' })}
-                                        onClick={() => { toggle('1'); }}
-                                    >
-                                        Resume
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '2' })}
-                                        onClick={() => { toggle('2'); }}
-                                    >
-                                        Cover Letter
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '3' })}
-                                        onClick={() => { toggle('3'); }}
-                                    >
-                                        LinkedIn
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '4' })}
-                                        onClick={() => { toggle('4'); }}
-                                    >
-                                        GitHub
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '5' })}
-                                        onClick={() => { toggle('5'); }}
-                                    >
-                                        Repl.it
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '6' })}
-                                        onClick={() => { toggle('6'); }}
-                                    >
-                                        CodeSandbox
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: activeTab === '7' })}
-                                        onClick={() => { toggle('7'); }}
-                                    >
-                                        Portfolio
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
+                        <div className="materials-background">
+                            <p className="jsm-Container-instructions">Use the Job Search Materials page to keep track of the essential
+                                documents needed when applying for jobs. Log into Job Tracker while
+                                applying and you can quickly copy and paste the information into the
+                                application! </p>
+                            <div>
+                                <Nav tabs className="jsmContainer">
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '1' })}
+                                            onClick={() => { toggle('1'); }}
+                                        >
+                                            Resume
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '2' })}
+                                            onClick={() => { toggle('2'); }}
+                                        >
+                                            Cover Letter
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '3' })}
+                                            onClick={() => { toggle('3'); }}
+                                        >
+                                            LinkedIn
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '4' })}
+                                            onClick={() => { toggle('4'); }}
+                                        >
+                                            GitHub
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '5' })}
+                                            onClick={() => { toggle('5'); }}
+                                        >
+                                            Repl.it
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '6' })}
+                                            onClick={() => { toggle('6'); }}
+                                        >
+                                            CodeSandbox
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '7' })}
+                                            onClick={() => { toggle('7'); }}
+                                        >
+                                            Portfolio
+                                        </NavLink>
+                                    </NavItem>
+                                </Nav>
 
-                            <TabContent activeTab={activeTab}>
-                                <TabPane tabId="1" className="jsmContainer">
-                                    <Resume handleCopy={handleCopy}/>
-                                </TabPane>
-                                <TabPane tabId="2" className="jsmContainer">
-                                    <CoverLetter handleCopy={handleCopy} />
-                                </TabPane>
-                                <TabPane tabId="3" className="jsmContainer">
-                                    <LinkedIn handleCopy={handleCopy} />
-                                </TabPane>
-                                <TabPane tabId="4" className="jsmContainer">
-                                    <GitHub handleCopy={handleCopy} />
-                                </TabPane>
-                                <TabPane tabId="5" className="jsmContainer">
-                                    <Repl handleCopy={handleCopy} />
-                                </TabPane>
-                                <TabPane tabId="6" className="jsmContainer">
-                                    <CodeSandbox handleCopy={handleCopy} />
-                                </TabPane>
-                                <TabPane tabId="7" className="jsmContainer">
-                                    <Portfolio handleCopy={handleCopy} />
-                                </TabPane>
-                            </TabContent>
-                        </>
+                                <TabContent activeTab={activeTab}>
+                                    <TabPane tabId="1" className="jsmContainer">
+                                        <Resume handleCopy={handleCopy}/>
+                                    </TabPane>
+                                    <TabPane tabId="2" className="jsmContainer">
+                                        <CoverLetter handleCopy={handleCopy} />
+                                    </TabPane>
+                                    <TabPane tabId="3" className="jsmContainer">
+                                        <LinkedIn handleCopy={handleCopy} />
+                                    </TabPane>
+                                    <TabPane tabId="4" className="jsmContainer">
+                                        <GitHub handleCopy={handleCopy} />
+                                    </TabPane>
+                                    <TabPane tabId="5" className="jsmContainer">
+                                        <Repl handleCopy={handleCopy} />
+                                    </TabPane>
+                                    <TabPane tabId="6" className="jsmContainer">
+                                        <CodeSandbox handleCopy={handleCopy} />
+                                    </TabPane>
+                                    <TabPane tabId="7" className="jsmContainer">
+                                        <Portfolio handleCopy={handleCopy} />
+                                    </TabPane>
+                                </TabContent>
+                            </div>
+                        </div>
                     )}
             </div>
 
