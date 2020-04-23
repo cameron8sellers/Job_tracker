@@ -1,7 +1,8 @@
 .loginContainer{
     width: 350px;
-    background-color: aliceblue;
+    background-color: #41b3a3;
     padding: 40px 20px;
+    border-radius: 15px;
 }
 
 .loginContainer-Button{
@@ -9,6 +10,9 @@
     border-radius: 40px;
     margin-top: 15px;
     margin-bottom: 10px;
+    background-color: #c38d9e;
+    color: white;
+    font-weight: bold;
 }
 
 .loginContainer-input{
@@ -27,4 +31,8 @@ span.navbar-text{
 .noAccess{
     margin-top: 40px;
     text-align: center;
+}
+
+@media (min-width: 768px){
+
 }
