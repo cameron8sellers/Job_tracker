@@ -11,11 +11,11 @@ export default function Date( {companies, setCompanies} ){
     return (
         <>
             <Form.Group>
-                <Form.Label>Date:</Form.Label>
                 <Form.Control
                     type="text"
                     value={companies.date}
                     onChange={handleDate}
+                    placeholder="Date"
                 />
             </Form.Group>
         </>

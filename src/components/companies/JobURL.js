@@ -11,11 +11,11 @@ export default function JobURL( {companies, setCompanies} ){
     return (
         <>
             <Form.Group>
-                <Form.Label>Job URL:</Form.Label>
                 <Form.Control
                     type="text"
                     value={companies.jobURL}
                     onChange={handleJobURL}
+                    placeholder="Job URL"
                 />
             </Form.Group>
         </>
