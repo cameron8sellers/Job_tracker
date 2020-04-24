@@ -1,15 +1,19 @@
 import React, { useState, useContext } from "react"
-import { Form, Col, Button, Card } from "react-bootstrap"
+import { Form, Col, Button, Card, Row, Container } from "react-bootstrap"
 import { TrackerContext } from "../../App"
+import { updateUserProfile } from "../../services/api-helper-userProfile";
+import { useMediaQuery } from "react-responsive";
+import ContactCard from "./contactCards"
 
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
+  const isDesktop = useMediaQuery({query: "(min-width:1020px)"});
   console.log(sharedStates)
   const [networks, setNetwork] = useState([{
     name: "",
-    email: "",
+    networkEmail: "",
     phone: "",
-    comapny: "",
+    employer: "",
     notes: ""
   }])
 
@@ -17,29 +21,29 @@ export default function NetworkForm(props){
       e.preventDefault()
       setNetwork({
         name: "",
-        email: "",
+        networkEmail: "",
         phone: "",
-        comapny: "",
+        employer: "",
         notes: ""
       })
       sharedStates.userProfile.networkingContacts.push(networks)
   }
 
 
-  const addNetwork = network => {
+ {/* const addNetwork = network => {
     const newNetwork = [...networks, network]
     setNetwork(newNetwork)
-}
+} */}
 
-  const handleNetwork = (e) => {
-    let newNetwork ={...networks}
-    newNetwork.name =e.target.value
-    setNetwork(newNetwork)
-  }
+const handleNetwork = (e) => {
+  let newNetwork ={...networks}
+  newNetwork.name =e.target.value
+  setNetwork(newNetwork)
+}
 
   const handleEmail = (e) => {
     let newEmail ={...networks}
-    newEmail.email =e.target.value
+    newEmail.networkEmail =e.target.value
     setNetwork(newEmail)
   }
 
@@ -51,7 +55,7 @@ export default function NetworkForm(props){
 
   const handleCompany = (e) => {
     let newCompany ={...networks}
-    newCompany.company =e.target.value
+    newCompany.employer =e.target.value
     setNetwork(newCompany)
   }
 
@@ -61,24 +65,33 @@ export default function NetworkForm(props){
     setNetwork(newNote)
   }
 
+  const handleDelete = (index) => {
+    sharedStates.userProfile.networkingContacts.splice(index, 1)
+    setNetwork({...networks})
+    updateUserProfile(sharedStates.token, sharedStates.userProfile)
+  }
+
   return (
       <>
-          <Form onSubmit={handleSubmit}>
-              <Form.Row>
+      { isDesktop ?
+      (
+        <div className="Chevron">
+          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
+              <Form.Row className="form-row">
                   <Col>
-                      <Form.Control
-                          type="text"
-                          value={networks.name}
-                          onChange={handleNetwork}
-                          placeholder="Name" 
-                      />
+                 <Form.Control
+                    type="text"
+                    value={networks.name}
+                    onChange={handleNetwork}
+                     placeholder="Name" 
+                    />
                   </Col>
                   </Form.Row>
                   <Form.Row>
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.email}
+                          value={networks.networkEmail}
                           onChange={handleEmail}
                           placeholder="Email" 
                       />
@@ -96,7 +109,7 @@ export default function NetworkForm(props){
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.company}
+                          value={networks.employer}
                           onChange={handleCompany}
                           placeholder="Company" 
                       />
@@ -114,33 +127,75 @@ export default function NetworkForm(props){
                   </Form.Row>
                   <Form.Row>
                   <Col>
-                      <Form.Control type="Submit" value="Submit" style={{ backgroundColor: '#c38d9e', width: "20%"}} />
+                      <Form.Control className= "sub-button" type="Submit" value="Submit"/>
                   </Col>
               </Form.Row>
           </Form>
-          {
-            sharedStates.userProfile.networkingContacts ?
-                (sharedStates.userProfile.networkingContacts.map((network, i) => {
-                    return (
-                        <Card key = {i} style={{ width: '18rem', borderColor: '#41B3A3' }}>
-                            <Card.Header>{network.name}</Card.Header>
-                            <Card.Body>
-                            <Card.Title>{network.company}</Card.Title>
-                            <Card.Text>
-                            {network.email}
-
-                            {network.phone}
-                            </Card.Text>
-                            <Card.Text>
-                            Notes:
-                            {network.notes}
-                            </Card.Text>
-                        </Card.Body>
-                        </Card>
-                        )
-                    }) 
-                ) : " "
-            }
+          </div>
+      ) : (
+        <div className="Chevron">
+        <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto"}}>
+              <Form.Row className="form-row">
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.name}
+                          onChange={handleNetwork}
+                          placeholder="Name" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.networkEmail}
+                          onChange={handleEmail}
+                          placeholder="Email" 
+                      />
+                  </Col>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.phone}
+                          onChange={handlePhone}
+                          placeholder="Phone" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.employer}
+                          onChange={handleCompany}
+                          placeholder="Company" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control
+                          type="text"
+                          value={networks.notes}
+                          onChange={handleNote}
+                          placeholder="Notes" 
+                      />
+                  </Col>
+                  </Form.Row>
+                  <Form.Row>
+                  <Col>
+                      <Form.Control className= "sub-button" type="Submit" value="Submit"/>
+                  </Col>
+              </Form.Row>
+          </Form> 
+          </div>
+      )}
+       <Container>
+            <Row>
+            <ContactCard handleDelete={handleDelete} />
+            </Row>
+          </Container>
       </>
     )  
     } 
