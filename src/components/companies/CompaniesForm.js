@@ -40,8 +40,8 @@ export default function CompaniesForm(){
         )
     }
 
-    const handleDelete = () => {
-        sharedStates.userProfile.targetCompanies.splice(-1, 1)
+    const handleDelete = (index) => {
+        sharedStates.userProfile.targetCompanies.splice(index, 1)
         setCompanies( {...companies} )
         updateUserProfile(sharedStates.token, sharedStates.userProfile)
     }
