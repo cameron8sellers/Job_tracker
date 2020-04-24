@@ -51,7 +51,7 @@ export default function CompaniesForm(){
             {
                 isDesktop ? 
                     (
-                        <Form style={{width: "50%", display: "block", margin: "1% auto"}} className="companies" onSubmit={handleSubmit}>
+                        <Form style={{width: "50%", display: "block", margin: "4% auto"}} className="companies" onSubmit={handleSubmit}>
                             <Form.Row>
                                 <Col>
                                     <CompanyName companies={companies} setCompanies={setCompanies} />

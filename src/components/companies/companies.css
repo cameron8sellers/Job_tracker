@@ -5,10 +5,13 @@
 
 .companies-description {
     text-align: center;
-    margin: 4% auto;
+    margin: 2% auto;
     font-weight: bold;
     color: #768987;
-    text-shadow: 0px 4px 7px rgba(0, 0, 0, 0.20);
+}
+
+.companies {
+    margin: 13% auto;
 }
 
 .companies > .form-row > .col > .form-group > input {
@@ -33,14 +36,15 @@
     z-index: 1;
     font-weight: bold;
     display: block;
-    width: 150px;
-    color: #c38d9e;
-    border-color: #c38d9e;
+    width: 200px;
+    color: #41b3a3;
+    border-color: #41b3a3;
     margin: 15px auto;
+    box-shadow: 0px 5px 10px rgb(71,71,71)
 }
 
 .submit:hover {
-    box-shadow: inset 0px 0px 36px -9px rgba(195,141,158,1);
+    box-shadow: inset 0px 0px 36px -9px rgba(66, 179, 163,1);
     color: white;
 }
 
@@ -53,6 +57,7 @@
 }
 
 .container > .row > .companies-card > .card-header {
+    text-transform: uppercase;
     color: #41b3a3;
     font-size: 20px;
     font-family: 'Rammetto One', cursive;
@@ -69,11 +74,15 @@
     cursor: pointer;
 }
 
+.far:hover {
+    color: #41b3a3;
+}
+
 p > span {
     font-weight: bold;
 }
 
-.Chevron {
+.companies-chevron {
     position: relative;
     text-align: center;
     padding: 12px;
@@ -81,24 +90,26 @@ p > span {
     margin-bottom: 30px;
     height: 400px;
     width: 100%;
-  }
-  .Chevron:before {
+}
+
+.companies-chevron:before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 50.5%;
-    background:  rgba(66, 179, 163, 0.7);
+    background:  rgba(66, 179, 163, 0.8);
     transform: skew(0deg, 6deg);
-  }
-  .Chevron:after {
+}
+
+.companies-chevron:after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     width: 50%;
-    background:  rgba(66, 179, 163, 0.7);
+    background:  rgba(66, 179, 163, 0.8);
     transform: skew(0deg, -6deg);
-  }
+}
