@@ -6,7 +6,7 @@ export default function CompaniesApplications() {
   return (
     <div className="companies-background">
       <Description />
-      <div className="Chevron">
+      <div className="companies-chevron">
         <CompaniesForm />
       </div>
     </div>
