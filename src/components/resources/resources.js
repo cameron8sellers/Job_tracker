@@ -1,17 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { TrackerContext } from "../../App";
 import { Card } from "reactstrap";
-import {
-  getResources,
-  updateResource,
-  deleteResource
-} from "../../services/api-helper-Resources";
+
 import "./resources.css";
 
 const ResourcesPage = () => {
-  const [resources, setResources] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
   const sharedStates = useContext(TrackerContext);
   console.log(sharedStates.resources);
 
@@ -20,7 +13,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -32,7 +25,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -44,7 +37,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -56,7 +49,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -67,7 +60,7 @@ const ResourcesPage = () => {
       return (
         <div>
           <a href={resource.url}>
-            <li>{resource.name}</li>
+            <li className="link">{resource.name}</li>
           </a>
         </div>
       );
@@ -77,7 +70,7 @@ const ResourcesPage = () => {
     return (
       <div>
         <a href={resource.url}>
-          <li>{resource.name}</li>
+          <li className="link">{resource.name}</li>
         </a>
       </div>
     );

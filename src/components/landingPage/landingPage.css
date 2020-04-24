@@ -1,11 +1,26 @@
 .landingPage-contentContainer{
-    max-width: 60%;
-    margin: 50px auto;
-
+    max-width: 90%;
+    width: 800px;
+    margin: 20px auto;
 }
+
+.landingPage-imageContainer{
+    height: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.landingPage-imageContainer > img{
+    height: 209px;
+    width: 375px;
+}
+
 
 .landingPage-contentContainer > p{
     text-align: center;
+    font-size: 18px;
 }
 
 .landingPageContainer{
@@ -16,12 +31,35 @@
 }
 
 .landingPage-authContainer{
-    margin: 25px;
+    margin: 0 auto;
 }
+
+p.welcomeHook{
+    font-size: 28px;
+    margin-bottom: 50px;
+}
+
 
 @media (min-width: 768px){
     .landingPageContainer{
         flex-direction: row;
     }
+
+    .landingPage-imageContainer > img{
+        max-width: 100%;
+        height: auto;
+        width: auto;
+    }
+
+    .landingPage-contentContainer{
+        max-width: 60%;
+        width: 800px;
+        margin: 50px auto;
+    }
+
+    .landingPage-authContainer{
+        margin: 25px;
+    }
+
 
 }
