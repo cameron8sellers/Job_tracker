@@ -1,12 +1,14 @@
 import React from "react";
 import CompaniesForm from "./CompaniesForm"
+import Description from "./Description"
 
-const CompaniesApplications = () => {
+export default function CompaniesApplications() {
   return (
-    <div>
+    <div className="companies-background">
+      <Description />
+      <div className="Chevron">
         <CompaniesForm />
+      </div>
     </div>
   );
 };
-
-export default CompaniesApplications;

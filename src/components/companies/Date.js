@@ -9,11 +9,15 @@ export default function Date( {companies, setCompanies} ){
     }
 
     return (
-        <Form.Control
-            type="text"
-            value={companies.date}
-            onChange={handleDate}
-            placeholder="Date Submitted" 
-        />
+        <>
+            <Form.Group>
+                <Form.Control
+                    type="text"
+                    value={companies.date}
+                    onChange={handleDate}
+                    placeholder="Date"
+                />
+            </Form.Group>
+        </>
     )
 }
