@@ -14,7 +14,7 @@ export default function ContactCard({handleDelete}){
                             <Card.Body>
                             <Card.Title><span>Company:</span> {network.employer}</Card.Title>
                             <Card.Text>
-                            <span>Email:</span> {network.networkEmail}
+                            <span>Email:</span> {network.networksEmail}
                             </Card.Text>
                             <Card.Text>
                             <span>Phone:</span> {network.phone}

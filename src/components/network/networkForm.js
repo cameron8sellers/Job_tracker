@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"
-import { Form, Col, Button, Card, Row, Container } from "react-bootstrap"
+import { Form, Col, Row, Container } from "react-bootstrap"
 import { TrackerContext } from "../../App"
 import { updateUserProfile } from "../../services/api-helper-userProfile";
 import { useMediaQuery } from "react-responsive";
@@ -10,7 +10,7 @@ export default function NetworkForm(props){
   const isDesktop = useMediaQuery({query: "(min-width:1020px)"});
   const [networks, setNetwork] = useState([{
     name: "",
-    networkEmail: "",
+    networksEmail: "",
     phone: "",
     employer: "",
     notes: ""
@@ -22,7 +22,7 @@ export default function NetworkForm(props){
   updateUserProfile(sharedStates.token, sharedStates.userProfile)
       setNetwork({
         name: "",
-        networkEmail: "",
+        networksEmail: "",
         phone: "",
         employer: "",
         notes: ""
@@ -37,7 +37,7 @@ const handleNetwork = (e) => {
 
   const handleEmail = (e) => {
     let newEmail ={...networks}
-    newEmail.networkEmail =e.target.value
+    newEmail.networksEmail =e.target.value
     setNetwork(newEmail)
   }
 
@@ -85,7 +85,7 @@ const handleNetwork = (e) => {
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.networkEmail}
+                          value={networks.networksEmail}
                           onChange={handleEmail}
                           placeholder="Email" 
                       />
@@ -143,7 +143,7 @@ const handleNetwork = (e) => {
                   <Col>
                       <Form.Control
                           type="text"
-                          value={networks.networkEmail}
+                          value={networks.networksEmail}
                           onChange={handleEmail}
                           placeholder="Email" 
                       />
