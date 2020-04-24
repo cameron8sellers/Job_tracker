@@ -8,7 +8,6 @@ import ContactCard from "./contactCards"
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
   const isDesktop = useMediaQuery({query: "(min-width:1020px)"});
-  console.log(sharedStates)
   const [networks, setNetwork] = useState([{
     name: "",
     networkEmail: "",
