@@ -19,6 +19,8 @@ export default function NetworkForm(props){
 
   const handleSubmit = (e) => {
       e.preventDefault()
+      sharedStates.userProfile.networkingContacts.push(networks)
+  updateUserProfile(sharedStates.token, sharedStates.userProfile)
       setNetwork({
         name: "",
         networkEmail: "",
@@ -26,14 +28,7 @@ export default function NetworkForm(props){
         employer: "",
         notes: ""
       })
-      sharedStates.userProfile.networkingContacts.push(networks)
   }
-
-
- {/* const addNetwork = network => {
-    const newNetwork = [...networks, network]
-    setNetwork(newNetwork)
-} */}
 
 const handleNetwork = (e) => {
   let newNetwork ={...networks}
@@ -72,11 +67,11 @@ const handleNetwork = (e) => {
   }
 
   return (
-      <>
-      { isDesktop ?
-      (
-        
-          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto", zIndex: 1, position: "relative"}}>
+             <>
+            { isDesktop ?
+                 (
+            <div className="network-chevron">
+          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "5% auto"}}>
               <Form.Row className="form-row">
                   <Col>
                  <Form.Control
@@ -131,9 +126,11 @@ const handleNetwork = (e) => {
                   </Col>
               </Form.Row>
           </Form>
+          </div>
       ) : (
-        <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto", zIndex: 1, position: "relative"}}>
-              <Form.Row className="form-row">
+        <div className="network-chevron">
+        <Form className="contact-form" onSubmit={handleSubmit} style={{display: "block", margin: "15% auto"}}>
+             <Form.Row className="form-row">
                   <Col>
                       <Form.Control
                           type="text"
@@ -187,12 +184,13 @@ const handleNetwork = (e) => {
                   </Col>
               </Form.Row>
           </Form> 
+          </div>
       )}
        <Container>
             <Row>
             <ContactCard handleDelete={handleDelete} />
             </Row>
           </Container>
-      </>
+          </>
     )  
-    } 
+    }
