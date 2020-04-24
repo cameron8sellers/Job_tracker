@@ -6,7 +6,7 @@ import './network.css'
 const Network = () => {
   return (
     <div>
-      <h1>Network</h1>
+      <h1>Store your contacts in one easy place!</h1>
       <NetworkForm /> 
     </div>
   );

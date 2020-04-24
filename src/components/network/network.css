@@ -35,6 +35,7 @@ h1 {
   border-width: 0 0 1px 0;
   color: grey;
   padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card-title {
@@ -85,7 +86,7 @@ p > span {
 }
 
 .container > .row > .contact-card > .card-header {
-  color: #41b3a3;
+  color: #c38d9e;
   font-size: 20px;
   font-family: 'Rammetto One', cursive;
 }

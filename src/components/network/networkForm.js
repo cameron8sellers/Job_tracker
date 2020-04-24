@@ -3,7 +3,7 @@ import { Form, Col, Button, Card, Row, Container } from "react-bootstrap"
 import { TrackerContext } from "../../App"
 import { updateUserProfile } from "../../services/api-helper-userProfile";
 import { useMediaQuery } from "react-responsive";
-import contactCard from "./contactCards"
+import ContactCard from "./contactCards"
 
 export default function NetworkForm(props){
   const sharedStates = useContext(TrackerContext);
@@ -30,16 +30,16 @@ export default function NetworkForm(props){
   }
 
 
-  const addNetwork = network => {
+ {/* const addNetwork = network => {
     const newNetwork = [...networks, network]
     setNetwork(newNetwork)
-}
+} */}
 
-  const handleNetwork = (e) => {
-    let newNetwork ={...networks}
-    newNetwork.name =e.target.value
-    setNetwork(newNetwork)
-  }
+const handleNetwork = (e) => {
+  let newNetwork ={...networks}
+  newNetwork.name =e.target.value
+  setNetwork(newNetwork)
+}
 
   const handleEmail = (e) => {
     let newEmail ={...networks}
@@ -75,15 +75,16 @@ export default function NetworkForm(props){
       <>
       { isDesktop ?
       (
+        <div className="Chevron">
           <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
               <Form.Row className="form-row">
                   <Col>
-                      <Form.Control
-                          type="text"
-                          value={networks.name}
-                          onChange={handleNetwork}
-                          placeholder="Name" 
-                      />
+                 <Form.Control
+                    type="text"
+                    value={networks.name}
+                    onChange={handleNetwork}
+                     placeholder="Name" 
+                    />
                   </Col>
                   </Form.Row>
                   <Form.Row>
@@ -130,7 +131,9 @@ export default function NetworkForm(props){
                   </Col>
               </Form.Row>
           </Form>
+          </div>
       ) : (
+        <div className="Chevron">
         <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto"}}>
               <Form.Row className="form-row">
                   <Col>
@@ -186,10 +189,11 @@ export default function NetworkForm(props){
                   </Col>
               </Form.Row>
           </Form> 
+          </div>
       )}
        <Container>
             <Row>
-            <contactCard handleDelete={handleDelete} />
+            <ContactCard handleDelete={handleDelete} />
             </Row>
           </Container>
       </>

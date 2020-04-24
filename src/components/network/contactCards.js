@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { Card } from "react-bootstrap"
 import { TrackerContext } from "../../App"
 
-export default function contactCard({handleDelete}){
+export default function ContactCard({handleDelete}){
     const sharedStates = useContext(TrackerContext)
     return (
         <> {
