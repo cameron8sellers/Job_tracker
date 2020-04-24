@@ -19,6 +19,8 @@ export default function NetworkForm(props){
 
   const handleSubmit = (e) => {
       e.preventDefault()
+      sharedStates.userProfile.networkingContacts.push(networks)
+  updateUserProfile(sharedStates.token, sharedStates.userProfile)
       setNetwork({
         name: "",
         networkEmail: "",
@@ -26,14 +28,7 @@ export default function NetworkForm(props){
         employer: "",
         notes: ""
       })
-      sharedStates.userProfile.networkingContacts.push(networks)
   }
-
-
- {/* const addNetwork = network => {
-    const newNetwork = [...networks, network]
-    setNetwork(newNetwork)
-} */}
 
 const handleNetwork = (e) => {
   let newNetwork ={...networks}
@@ -72,11 +67,11 @@ const handleNetwork = (e) => {
   }
 
   return (
-      <>
-      { isDesktop ?
-      (
-        <div className="network-chevron">
-          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
+             <>
+            { isDesktop ?
+                 (
+            <div className="network-chevron">
+          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "5% auto"}}>
               <Form.Row className="form-row">
                   <Col>
                  <Form.Control
@@ -134,8 +129,8 @@ const handleNetwork = (e) => {
           </div>
       ) : (
         <div className="network-chevron">
-        <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto"}}>
-              <Form.Row className="form-row">
+        <Form className="contact-form" onSubmit={handleSubmit} style={{display: "block", margin: "15% auto"}}>
+             <Form.Row className="form-row">
                   <Col>
                       <Form.Control
                           type="text"
@@ -185,7 +180,7 @@ const handleNetwork = (e) => {
                   </Form.Row>
                   <Form.Row>
                   <Col>
-                      <Form.Control className= "sub-button" type="Submit" value="Submit"/>
+                      <Form.Control className= "sub-button" type="Submit" value="Submit" />
                   </Col>
               </Form.Row>
           </Form> 
@@ -196,6 +191,6 @@ const handleNetwork = (e) => {
             <ContactCard handleDelete={handleDelete} />
             </Row>
           </Container>
-      </>
+          </>
     )  
-    } 
+    }
