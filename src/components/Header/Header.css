@@ -1,12 +1,14 @@
+
 .nav-link {
-  font-size: 20px;
+    font-size: 20px;
+    color: #c38d9e;
 }
 
-.navbar-text:hover,
-.nav-link:hover {
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
+.navbar-text:hover, .nav-link:hover {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    color: #c38d9e;
 }
 
 .navbar-brand {
@@ -22,6 +24,10 @@
 
 .mr-auto {
   margin: 0;
+}
+
+.header > .navbar {
+    box-shadow: 0px 0px 36px -8px rgba(102,107,106,1);
 }
 
 @media (min-width: 768px) {
@@ -52,9 +58,13 @@
 
 }
 
-@media (min-width: 1024px) {
-  .nav-link:nth-of-type(2) {
-    margin-left: 2em;
+@media (min-width: 1020px) {
+    .nav {
+        flex-wrap: nowrap;
+  }
+
+    .nav-link:nth-of-type(2) {
+        margin-left: 2em;
   }
 
   .nav-link:nth-of-type(4) {

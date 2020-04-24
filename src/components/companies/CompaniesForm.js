@@ -13,7 +13,6 @@ import "./companies.css"
 
 
 export default function CompaniesForm(){
-    const isTablet = useMediaQuery({query: "(min-width:768px)"})
     const isDesktop = useMediaQuery({query: "(min-width:1020px)"}) 
     const sharedStates = useContext(TrackerContext);
     const [companies, setCompanies] = useState([
@@ -43,7 +42,7 @@ export default function CompaniesForm(){
 
     const handleDelete = (index) => {
         sharedStates.userProfile.targetCompanies.splice(index, 1)
-        setCompanies({ ...companies })
+        setCompanies( {...companies} )
         updateUserProfile(sharedStates.token, sharedStates.userProfile)
     }
 

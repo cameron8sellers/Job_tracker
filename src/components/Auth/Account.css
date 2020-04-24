@@ -1,6 +1,6 @@
 .loginContainer{
     width: 350px;
-    background-color: #41b3a3;
+    background-color: rgba(66, 179, 163, 0.7);
     padding: 40px 20px;
     border-radius: 15px;
 }
@@ -31,8 +31,4 @@ span.navbar-text{
 .noAccess{
     margin-top: 40px;
     text-align: center;
-}
-
-@media (min-width: 768px){
-
 }
