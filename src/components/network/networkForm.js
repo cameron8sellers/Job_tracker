@@ -75,7 +75,7 @@ const handleNetwork = (e) => {
       <>
       { isDesktop ?
       (
-        <div className="Chevron">
+        <div className="network-chevron">
           <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
               <Form.Row className="form-row">
                   <Col>
@@ -133,7 +133,7 @@ const handleNetwork = (e) => {
           </Form>
           </div>
       ) : (
-        <div className="Chevron">
+        <div className="network-chevron">
         <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto"}}>
               <Form.Row className="form-row">
                   <Col>
