@@ -26,6 +26,9 @@
     margin: 0;
 }
 
+.header > .navbar {
+    box-shadow: 0px 0px 36px -8px rgba(102,107,106,1);
+}
 
 @media (min-width: 768px) {
 
