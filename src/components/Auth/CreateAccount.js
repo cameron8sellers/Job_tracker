@@ -35,7 +35,7 @@ function CreateAccount({handleUserNameChange, handlePasswordChange, userCreds}) 
                     <Input
                         type="email"
                         name="email"
-                        placeholder="Username or Email Address"
+                        placeholder="Email Address"
                         onChange={handleUserNameChange}
                         className="loginContainer-input"/>
                 </FormGroup>

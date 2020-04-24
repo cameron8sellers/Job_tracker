@@ -11,7 +11,7 @@ const LandingPage = () => {
             <div className="landingPage-imageContainer">
                 <img src="https://res.cloudinary.com/doaftkgbv/image/upload/v1587660076/BrainMap_tyv9om.png" alt="brain-map" />
             </div>
-            <p>Let Job Tracker help by keeping the this information centralized in one location. Job Tracker was built to keep you focused on our
+            <p>Let Job Tracker help by keeping this information centralized in one location. Job Tracker was built to keep you focused on our
                 five themes designed to set you up for your job search
                 success! This Job Tracker is designed to help
                 you feel confident in each of these areas so that upon starting your
