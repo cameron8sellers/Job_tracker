@@ -75,8 +75,8 @@ const handleNetwork = (e) => {
       <>
       { isDesktop ?
       (
-        <div className="Chevron">
-          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto"}}>
+        
+          <Form className="contact-form" onSubmit={handleSubmit} style={{width: "50%", display: "block", margin: "1% auto", zIndex: 1, position: "relative"}}>
               <Form.Row className="form-row">
                   <Col>
                  <Form.Control
@@ -131,10 +131,8 @@ const handleNetwork = (e) => {
                   </Col>
               </Form.Row>
           </Form>
-          </div>
       ) : (
-        <div className="Chevron">
-        <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto"}}>
+        <Form className="contact-form" onSubmit={handleSubmit} style={{width: "100%", display: "block", margin: "1% auto", zIndex: 1, position: "relative"}}>
               <Form.Row className="form-row">
                   <Col>
                       <Form.Control
@@ -185,11 +183,10 @@ const handleNetwork = (e) => {
                   </Form.Row>
                   <Form.Row>
                   <Col>
-                      <Form.Control className= "sub-button" type="Submit" value="Submit"/>
+                      <Form.Control className= "sub-button" type="Submit" value="Submit" />
                   </Col>
               </Form.Row>
           </Form> 
-          </div>
       )}
        <Container>
             <Row>
